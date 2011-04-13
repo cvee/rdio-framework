@@ -1,0 +1,16 @@
+Description
+
+Rdio.framework is an Objective-C framework for interacting with the Rdio social music service at http://rdio.com.
+
+
+Requirements
+
+Rdio.framework targets Mac OS X 10.5.8+ and iOS 4.2+.
+
+
+Acknowledgements
+
+Rdio.framework makes use of the following code:
+
+GHUnit framework created by Gabriel Handford
+https://github.com/gabriel/gh-unit
