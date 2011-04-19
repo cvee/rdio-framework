@@ -42,8 +42,8 @@
 /**
  * @brief Class representation of an error.
  */
-@interface RDError : NSObject <NSCoding, NSCopying> {
-@private
+@interface RDError : NSObject <NSCoding, NSCopying>
+{
     NSString *message;
 }
 
