@@ -1,5 +1,5 @@
 //
-//  OpenRadar.h
+//  Rdio.h
 //
 //  Copyright (c) 2011, Chris Verwymeren
 //  All rights reserved.
@@ -34,11 +34,17 @@
 
 #if TARGET_OS_IPHONE
 
-
+#import "RDArtist.h"
+#import "RDObject.h"
+#import "RDTrack.h"
+#import "RDUser.h"
 
 #else
 
-
+#import <Rdio/RDArtist.h>
+#import <Rdio/RDObject.h>
+#import <Rdio/RDTrack.h>
+#import <Rdio/RDUser.h>
 
 #endif
 
