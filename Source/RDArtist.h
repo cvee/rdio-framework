@@ -35,6 +35,10 @@
 #import "RDObject.h"
 
 
+@class NSNumber;
+@class NSString;
+@class NSURL;
+
 @interface RDArtist : RDObject
 {
     NSNumber *albumCount;
