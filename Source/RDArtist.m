@@ -155,7 +155,7 @@ NSString *kRDArtistTrackCount = @"trackCount";
 }
 
 #pragma mark -
-#pragma mark Protocol (NSCoding)
+#pragma mark NSCoding Protocol
 
 - (void)encodeWithCoder:(NSCoder *)encoder
 {
@@ -184,7 +184,7 @@ NSString *kRDArtistTrackCount = @"trackCount";
 }
 
 #pragma mark -
-#pragma mark Protocol (NSCopying)
+#pragma mark NSCopying Protocol
 
 - (id)copyWithZone:(NSZone *)zone
 {
@@ -207,7 +207,7 @@ NSString *kRDArtistTrackCount = @"trackCount";
 }
 
 #pragma mark -
-#pragma mark Protocol (NSObject)
+#pragma mark NSObject Protocol
 
 - (NSString *)description
 {

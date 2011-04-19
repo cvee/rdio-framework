@@ -77,7 +77,7 @@ NSString *kRDErrorMessage = @"message";
 }
 
 #pragma mark -
-#pragma mark Protocol (NSCoding)
+#pragma mark NSCoding Protocol
 
 - (void)encodeWithCoder:(NSCoder *)encoder
 {
@@ -94,7 +94,7 @@ NSString *kRDErrorMessage = @"message";
 }
 
 #pragma mark -
-#pragma mark Protocol (NSCopying)
+#pragma mark NSCopying Protocol
 
 - (id)copyWithZone:(NSZone *)zone
 {
@@ -107,7 +107,7 @@ NSString *kRDErrorMessage = @"message";
 }
 
 #pragma mark -
-#pragma mark Protocol (NSObject)
+#pragma mark NSObject Protocol
 
 - (NSString *)description
 {
