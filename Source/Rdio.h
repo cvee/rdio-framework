@@ -34,6 +34,7 @@
 
 #if TARGET_OS_IPHONE
 
+#import "RDAlbum.h"
 #import "RDArtist.h"
 #import "RDObject.h"
 #import "RDTrack.h"
@@ -41,6 +42,7 @@
 
 #else
 
+#import <Rdio/RDAlbum.h>
 #import <Rdio/RDArtist.h>
 #import <Rdio/RDObject.h>
 #import <Rdio/RDTrack.h>

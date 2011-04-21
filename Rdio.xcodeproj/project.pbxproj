@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
+		EF1C63B9135DCF2800A29562 /* RDTrack.h in Headers */ = {isa = PBXBuildFile; fileRef = EF1C63B7135DCF2800A29562 /* RDTrack.h */; };
+		EF1C63BA135DCF2800A29562 /* RDTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = EF1C63B8135DCF2800A29562 /* RDTrack.m */; };
+		EF2162951355456E008401A9 /* RDObject.h in Headers */ = {isa = PBXBuildFile; fileRef = EF2162931355456E008401A9 /* RDObject.h */; };
+		EF2162961355456E008401A9 /* RDObject.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2162941355456E008401A9 /* RDObject.m */; };
 		EFAB823F13552D250045D740 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EFAB823D13552D250045D740 /* InfoPlist.strings */; };
 		EFAB825713552D540045D740 /* Common.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = EFAB825413552D540045D740 /* Common.xcconfig */; };
 		EFAB825813552D540045D740 /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = EFAB825513552D540045D740 /* Debug.xcconfig */; };
@@ -17,6 +21,18 @@
 		EFAB826413552EB80045D740 /* LPServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EFAB826013552EB80045D740 /* LPServiceClient.m */; };
 		EFAB826513552EB80045D740 /* LPServiceRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = EFAB826113552EB80045D740 /* LPServiceRequest.h */; };
 		EFAB826613552EB80045D740 /* LPServiceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = EFAB826213552EB80045D740 /* LPServiceRequest.m */; };
+		EFBF1938135533CF0028FF61 /* RDConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = EFBF1936135533CF0028FF61 /* RDConstants.h */; };
+		EFBF1939135533CF0028FF61 /* RDConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBF1937135533CF0028FF61 /* RDConstants.m */; };
+		EFBF1956135534CD0028FF61 /* RDServiceError.h in Headers */ = {isa = PBXBuildFile; fileRef = EFBF1954135534CD0028FF61 /* RDServiceError.h */; };
+		EFBF1957135534CD0028FF61 /* RDServiceError.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBF1955135534CD0028FF61 /* RDServiceError.m */; };
+		EFED3E12135D220A00F93EF8 /* RDArtist.h in Headers */ = {isa = PBXBuildFile; fileRef = EFED3E10135D220A00F93EF8 /* RDArtist.h */; };
+		EFED3E13135D220A00F93EF8 /* RDArtist.m in Sources */ = {isa = PBXBuildFile; fileRef = EFED3E11135D220A00F93EF8 /* RDArtist.m */; };
+		EFED3E16135D221700F93EF8 /* RDError.h in Headers */ = {isa = PBXBuildFile; fileRef = EFED3E14135D221700F93EF8 /* RDError.h */; };
+		EFED3E17135D221700F93EF8 /* RDError.m in Sources */ = {isa = PBXBuildFile; fileRef = EFED3E15135D221700F93EF8 /* RDError.m */; };
+		EFED3E1A135D222800F93EF8 /* RDUser.h in Headers */ = {isa = PBXBuildFile; fileRef = EFED3E18135D222800F93EF8 /* RDUser.h */; };
+		EFED3E1B135D222800F93EF8 /* RDUser.m in Sources */ = {isa = PBXBuildFile; fileRef = EFED3E19135D222800F93EF8 /* RDUser.m */; };
+		EFFBA93D135FCE66009569E0 /* RDAlbum.h in Headers */ = {isa = PBXBuildFile; fileRef = EFFBA93B135FCE66009569E0 /* RDAlbum.h */; };
+		EFFBA93E135FCE66009569E0 /* RDAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFBA93C135FCE66009569E0 /* RDAlbum.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +42,10 @@
 		32DBCF5E0370ADEE00C91783 /* Rdio_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rdio_Prefix.pch; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* Rdio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Rdio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		EF1C63B7135DCF2800A29562 /* RDTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RDTrack.h; path = Source/RDTrack.h; sourceTree = "<group>"; };
+		EF1C63B8135DCF2800A29562 /* RDTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RDTrack.m; path = Source/RDTrack.m; sourceTree = "<group>"; };
+		EF2162931355456E008401A9 /* RDObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RDObject.h; path = Source/RDObject.h; sourceTree = "<group>"; };
+		EF2162941355456E008401A9 /* RDObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RDObject.m; path = Source/RDObject.m; sourceTree = "<group>"; };
 		EFAB823B13552D0F0045D740 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/Info.plist; sourceTree = "<group>"; };
 		EFAB823E13552D250045D740 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = Resources/English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EFAB825413552D540045D740 /* Common.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
@@ -36,6 +56,18 @@
 		EFAB826013552EB80045D740 /* LPServiceClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LPServiceClient.m; path = Source/LPServiceClient.m; sourceTree = "<group>"; };
 		EFAB826113552EB80045D740 /* LPServiceRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LPServiceRequest.h; path = Source/LPServiceRequest.h; sourceTree = "<group>"; };
 		EFAB826213552EB80045D740 /* LPServiceRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LPServiceRequest.m; path = Source/LPServiceRequest.m; sourceTree = "<group>"; };
+		EFBF1936135533CF0028FF61 /* RDConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RDConstants.h; path = Source/RDConstants.h; sourceTree = "<group>"; };
+		EFBF1937135533CF0028FF61 /* RDConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RDConstants.m; path = Source/RDConstants.m; sourceTree = "<group>"; };
+		EFBF1954135534CD0028FF61 /* RDServiceError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RDServiceError.h; path = Source/RDServiceError.h; sourceTree = "<group>"; };
+		EFBF1955135534CD0028FF61 /* RDServiceError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RDServiceError.m; path = Source/RDServiceError.m; sourceTree = "<group>"; };
+		EFED3E10135D220A00F93EF8 /* RDArtist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RDArtist.h; path = Source/RDArtist.h; sourceTree = "<group>"; };
+		EFED3E11135D220A00F93EF8 /* RDArtist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RDArtist.m; path = Source/RDArtist.m; sourceTree = "<group>"; };
+		EFED3E14135D221700F93EF8 /* RDError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RDError.h; path = Source/RDError.h; sourceTree = "<group>"; };
+		EFED3E15135D221700F93EF8 /* RDError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RDError.m; path = Source/RDError.m; sourceTree = "<group>"; };
+		EFED3E18135D222800F93EF8 /* RDUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RDUser.h; path = Source/RDUser.h; sourceTree = "<group>"; };
+		EFED3E19135D222800F93EF8 /* RDUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RDUser.m; path = Source/RDUser.m; sourceTree = "<group>"; };
+		EFFBA93B135FCE66009569E0 /* RDAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RDAlbum.h; path = Source/RDAlbum.h; sourceTree = "<group>"; };
+		EFFBA93C135FCE66009569E0 /* RDAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RDAlbum.m; path = Source/RDAlbum.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,8 +124,11 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				EFBF195A135535740028FF61 /* Models */,
 				EFAB826713552EC10045D740 /* Service */,
 				EFAB825B13552DDB0045D740 /* Rdio.h */,
+				EFBF1936135533CF0028FF61 /* RDConstants.h */,
+				EFBF1937135533CF0028FF61 /* RDConstants.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -137,12 +172,33 @@
 		EFAB826713552EC10045D740 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				EFBF1954135534CD0028FF61 /* RDServiceError.h */,
+				EFBF1955135534CD0028FF61 /* RDServiceError.m */,
 				EFAB825F13552EB80045D740 /* LPServiceClient.h */,
 				EFAB826013552EB80045D740 /* LPServiceClient.m */,
 				EFAB826113552EB80045D740 /* LPServiceRequest.h */,
 				EFAB826213552EB80045D740 /* LPServiceRequest.m */,
 			);
 			name = Service;
+			sourceTree = "<group>";
+		};
+		EFBF195A135535740028FF61 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EFFBA93B135FCE66009569E0 /* RDAlbum.h */,
+				EFFBA93C135FCE66009569E0 /* RDAlbum.m */,
+				EFED3E10135D220A00F93EF8 /* RDArtist.h */,
+				EFED3E11135D220A00F93EF8 /* RDArtist.m */,
+				EFED3E14135D221700F93EF8 /* RDError.h */,
+				EFED3E15135D221700F93EF8 /* RDError.m */,
+				EF2162931355456E008401A9 /* RDObject.h */,
+				EF2162941355456E008401A9 /* RDObject.m */,
+				EF1C63B7135DCF2800A29562 /* RDTrack.h */,
+				EF1C63B8135DCF2800A29562 /* RDTrack.m */,
+				EFED3E18135D222800F93EF8 /* RDUser.h */,
+				EFED3E19135D222800F93EF8 /* RDUser.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,6 +211,14 @@
 				EFAB825D13552DDB0045D740 /* Rdio.h in Headers */,
 				EFAB826313552EB80045D740 /* LPServiceClient.h in Headers */,
 				EFAB826513552EB80045D740 /* LPServiceRequest.h in Headers */,
+				EFBF1938135533CF0028FF61 /* RDConstants.h in Headers */,
+				EFBF1956135534CD0028FF61 /* RDServiceError.h in Headers */,
+				EF2162951355456E008401A9 /* RDObject.h in Headers */,
+				EFED3E12135D220A00F93EF8 /* RDArtist.h in Headers */,
+				EFED3E16135D221700F93EF8 /* RDError.h in Headers */,
+				EFED3E1A135D222800F93EF8 /* RDUser.h in Headers */,
+				EF1C63B9135DCF2800A29562 /* RDTrack.h in Headers */,
+				EFFBA93D135FCE66009569E0 /* RDAlbum.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,6 +290,14 @@
 			files = (
 				EFAB826413552EB80045D740 /* LPServiceClient.m in Sources */,
 				EFAB826613552EB80045D740 /* LPServiceRequest.m in Sources */,
+				EFBF1939135533CF0028FF61 /* RDConstants.m in Sources */,
+				EFBF1957135534CD0028FF61 /* RDServiceError.m in Sources */,
+				EF2162961355456E008401A9 /* RDObject.m in Sources */,
+				EFED3E13135D220A00F93EF8 /* RDArtist.m in Sources */,
+				EFED3E17135D221700F93EF8 /* RDError.m in Sources */,
+				EFED3E1B135D222800F93EF8 /* RDUser.m in Sources */,
+				EF1C63BA135DCF2800A29562 /* RDTrack.m in Sources */,
+				EFFBA93E135FCE66009569E0 /* RDAlbum.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
