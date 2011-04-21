@@ -33,6 +33,8 @@
 		EFED3E1B135D222800F93EF8 /* RDUser.m in Sources */ = {isa = PBXBuildFile; fileRef = EFED3E19135D222800F93EF8 /* RDUser.m */; };
 		EFFBA93D135FCE66009569E0 /* RDAlbum.h in Headers */ = {isa = PBXBuildFile; fileRef = EFFBA93B135FCE66009569E0 /* RDAlbum.h */; };
 		EFFBA93E135FCE66009569E0 /* RDAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFBA93C135FCE66009569E0 /* RDAlbum.m */; };
+		EFFBA95D135FD657009569E0 /* RDPlaylist.h in Headers */ = {isa = PBXBuildFile; fileRef = EFFBA95B135FD657009569E0 /* RDPlaylist.h */; };
+		EFFBA95E135FD657009569E0 /* RDPlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFBA95C135FD657009569E0 /* RDPlaylist.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +70,8 @@
 		EFED3E19135D222800F93EF8 /* RDUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RDUser.m; path = Source/RDUser.m; sourceTree = "<group>"; };
 		EFFBA93B135FCE66009569E0 /* RDAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RDAlbum.h; path = Source/RDAlbum.h; sourceTree = "<group>"; };
 		EFFBA93C135FCE66009569E0 /* RDAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RDAlbum.m; path = Source/RDAlbum.m; sourceTree = "<group>"; };
+		EFFBA95B135FD657009569E0 /* RDPlaylist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RDPlaylist.h; path = Source/RDPlaylist.h; sourceTree = "<group>"; };
+		EFFBA95C135FD657009569E0 /* RDPlaylist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RDPlaylist.m; path = Source/RDPlaylist.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +197,8 @@
 				EFED3E15135D221700F93EF8 /* RDError.m */,
 				EF2162931355456E008401A9 /* RDObject.h */,
 				EF2162941355456E008401A9 /* RDObject.m */,
+				EFFBA95B135FD657009569E0 /* RDPlaylist.h */,
+				EFFBA95C135FD657009569E0 /* RDPlaylist.m */,
 				EF1C63B7135DCF2800A29562 /* RDTrack.h */,
 				EF1C63B8135DCF2800A29562 /* RDTrack.m */,
 				EFED3E18135D222800F93EF8 /* RDUser.h */,
@@ -219,6 +225,7 @@
 				EFED3E1A135D222800F93EF8 /* RDUser.h in Headers */,
 				EF1C63B9135DCF2800A29562 /* RDTrack.h in Headers */,
 				EFFBA93D135FCE66009569E0 /* RDAlbum.h in Headers */,
+				EFFBA95D135FD657009569E0 /* RDPlaylist.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +305,7 @@
 				EFED3E1B135D222800F93EF8 /* RDUser.m in Sources */,
 				EF1C63BA135DCF2800A29562 /* RDTrack.m in Sources */,
 				EFFBA93E135FCE66009569E0 /* RDAlbum.m in Sources */,
+				EFFBA95E135FD657009569E0 /* RDPlaylist.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
