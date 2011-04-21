@@ -66,11 +66,6 @@
 }
 
 // Properties
-@property (nonatomic, copy, getter=albumArtistKey, setter=setAlbumArtistKey) NSString *_albumArtistKey;
-@property (nonatomic, copy, getter=albumArtistName, setter=setAlbumArtistName) NSString *_albumArtistName;
-@property (nonatomic, copy, getter=albumKey, setter=setAlbumKey) NSString *_albumKey;
-@property (nonatomic, copy, getter=albumName, setter=setAlbumName) NSString *_albumName;
-@property (nonatomic, retain, getter=albumURL, setter=setAlbumURL) NSURL *_albumURL;
 @property (nonatomic, copy, getter=artistKey, setter=setArtistKey) NSString *_artistKey;
 @property (nonatomic, copy, getter=artistName, setter=setArtistName) NSString *_artistName;
 @property (nonatomic, retain, getter=artistURL, setter=setArtistURL) NSURL *_artistURL;
