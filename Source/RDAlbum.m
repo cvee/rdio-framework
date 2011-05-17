@@ -50,12 +50,14 @@ NSString *kRDAlbumArtistName = @"artistName";
 NSString *kRDAlbumArtistURL = @"artistURL";
 NSString *kRDAlbumBaseIcon = @"baseIcon";
 NSString *kRDAlbumClean = @"clean";
+NSString *kRDAlbumCompilation = @"compilation";
 NSString *kRDAlbumDownloadable = @"downloadable";
 NSString *kRDAlbumDownloadableAlbumOnly = @"downloadableAlbumOnly";
 NSString *kRDAlbumDuration = @"duration";
 NSString *kRDAlbumEmbedURL = @"embedURL";
 NSString *kRDAlbumExplicit = @"explicit";
 NSString *kRDAlbumIconURL = @"iconURL";
+NSString *kRDAlbumIconLargeURL = @"iconLargeURL";
 NSString *kRDAlbumName = @"name";
 NSString *kRDAlbumPlayCount = @"playCount";
 NSString *kRDAlbumPrice = @"price";
@@ -66,6 +68,7 @@ NSString *kRDAlbumShortURL = @"shortURL";
 NSString *kRDAlbumStreamable = @"streamable";
 NSString *kRDAlbumSyncable = @"syncable";
 NSString *kRDAlbumTrackCount = @"trackCount";
+NSString *kRDAlbumTrackKeys = @"trackKeys";
 
 #pragma mark -
 
@@ -79,12 +82,14 @@ NSString *kRDAlbumTrackCount = @"trackCount";
 @synthesize _artistURL;
 @synthesize _baseIcon;
 @synthesize _clean;
+@synthesize _compilation;
 @synthesize _downloadable;
 @synthesize _downloadableAlbumOnly;
 @synthesize _duration;
 @synthesize _embedURL;
 @synthesize _explicit;
 @synthesize _iconURL;
+@synthesize _iconLargeURL;
 @synthesize _name;
 @synthesize _playCount;
 @synthesize _price;
@@ -95,6 +100,7 @@ NSString *kRDAlbumTrackCount = @"trackCount";
 @synthesize _streamable;
 @synthesize _syncable;
 @synthesize _trackCount;
+@synthesize _trackKeys;
 
 #pragma mark -
 #pragma mark Initialization
@@ -144,6 +150,12 @@ NSString *kRDAlbumTrackCount = @"trackCount";
         _clean = [(NSNumber *)aClean boolValue];
     }
 
+    id aCompilation = [aDictionary objectForKey:@"isCompilation"];
+    if ([aCompilation isKindOfClass:[NSNumber class]])
+    {
+        _compilation = [(NSNumber *)aCompilation boolValue];
+    }
+
     id aDownloadable = [aDictionary objectForKey:@"canDownload"];
     if ([aDownloadable isKindOfClass:[NSNumber class]])
     {
@@ -190,6 +202,16 @@ NSString *kRDAlbumTrackCount = @"trackCount";
     if ([aIconURL isKindOfClass:[NSURL class]])
     {
         _iconURL = [(NSURL *)aIconURL retain];
+    }
+
+    id aIconLargeURL = [aDictionary objectForKey:@"bigIcon"];
+    if ([aIconLargeURL isKindOfClass:[NSString class]])
+    {
+        _iconLargeURL = [[NSURL alloc] initWithString:aIconLargeURL];
+    }
+    if ([aIconLargeURL isKindOfClass:[NSURL class]])
+    {
+        _iconLargeURL = [(NSURL *)aIconLargeURL retain];
     }
 
     id aName = [aDictionary objectForKey:@"name"];
@@ -278,6 +300,12 @@ NSString *kRDAlbumTrackCount = @"trackCount";
         _trackCount = [[numberFormatter numberFromString:(NSString *)aTrackCount] retain];
     }
 
+    id aTrackKeys = [aDictionary objectForKey:@"trackKeys"];
+    if ([aTrackKeys isKindOfClass:[NSArray class]])
+    {
+        _trackKeys = [(NSArray *)aTrackKeys copy];
+    }
+
     [dateFormatter release];
     [numberFormatter release];
 
@@ -298,6 +326,7 @@ NSString *kRDAlbumTrackCount = @"trackCount";
     [_baseIcon release];
     _baseIcon = nil;
     _clean = NO;
+    _compilation = NO;
     _downloadable = NO;
     _downloadableAlbumOnly = NO;
     [_duration release];
@@ -307,6 +336,8 @@ NSString *kRDAlbumTrackCount = @"trackCount";
     _explicit = NO;
     [_iconURL release];
     _iconURL = nil;
+    [_iconLargeURL release];
+    _iconLargeURL = nil;
     [_name release];
     _name = nil;
     [_playCount release];
@@ -324,6 +355,8 @@ NSString *kRDAlbumTrackCount = @"trackCount";
     _syncable = NO;
     [_trackCount release];
     _trackCount = nil;
+    [_trackKeys release];
+    _trackKeys = nil;
 
     [super dealloc];
 }
@@ -340,12 +373,14 @@ NSString *kRDAlbumTrackCount = @"trackCount";
     [encoder encodeObject:_artistURL forKey:kRDAlbumArtistURL];
     [encoder encodeObject:_baseIcon forKey:kRDAlbumBaseIcon];
     [encoder encodeBool:_clean forKey:kRDAlbumClean];
+    [encoder encodeBool:_compilation forKey:kRDAlbumCompilation];
     [encoder encodeBool:_downloadable forKey:kRDAlbumDownloadable];
     [encoder encodeBool:_downloadableAlbumOnly forKey:kRDAlbumDownloadableAlbumOnly];
     [encoder encodeObject:_duration forKey:kRDAlbumDuration];
     [encoder encodeObject:_embedURL forKey:kRDAlbumEmbedURL];
     [encoder encodeBool:_explicit forKey:kRDAlbumExplicit];
     [encoder encodeObject:_iconURL forKey:kRDAlbumIconURL];
+    [encoder encodeObject:_iconLargeURL forKey:kRDAlbumIconLargeURL];
     [encoder encodeObject:_name forKey:kRDAlbumName];
     [encoder encodeObject:_playCount forKey:kRDAlbumPlayCount];
     [encoder encodeObject:_price forKey:kRDAlbumPrice];
@@ -356,6 +391,7 @@ NSString *kRDAlbumTrackCount = @"trackCount";
     [encoder encodeBool:_streamable forKey:kRDAlbumStreamable];
     [encoder encodeBool:_syncable forKey:kRDAlbumSyncable];
     [encoder encodeObject:_trackCount forKey:kRDAlbumTrackCount];
+    [encoder encodeObject:_trackKeys forKey:kRDAlbumTrackKeys];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder
@@ -367,12 +403,14 @@ NSString *kRDAlbumTrackCount = @"trackCount";
     _artistURL = [decoder decodeObjectForKey:kRDAlbumArtistURL];
     _baseIcon = [decoder decodeObjectForKey:kRDAlbumBaseIcon];
     _clean = [decoder decodeBoolForKey:kRDAlbumClean];
+    _compilation = [decoder decodeBoolForKey:kRDAlbumCompilation];
     _downloadable = [decoder decodeBoolForKey:kRDAlbumDownloadable];
     _downloadableAlbumOnly = [decoder decodeBoolForKey:kRDAlbumDownloadableAlbumOnly];
     _duration = [decoder decodeObjectForKey:kRDAlbumDuration];
     _embedURL = [decoder decodeObjectForKey:kRDAlbumEmbedURL];
     _explicit = [decoder decodeBoolForKey:kRDAlbumExplicit];
     _iconURL = [decoder decodeObjectForKey:kRDAlbumIconURL];
+    _iconLargeURL = [decoder decodeObjectForKey:kRDAlbumIconLargeURL];
     _name = [decoder decodeObjectForKey:kRDAlbumName];
     _playCount = [decoder decodeObjectForKey:kRDAlbumPlayCount];
     _price = [decoder decodeObjectForKey:kRDAlbumPrice];
@@ -383,6 +421,7 @@ NSString *kRDAlbumTrackCount = @"trackCount";
     _streamable = [decoder decodeBoolForKey:kRDAlbumStreamable];
     _syncable = [decoder decodeBoolForKey:kRDAlbumSyncable];
     _trackCount = [decoder decodeObjectForKey:kRDAlbumTrackCount];
+    _trackKeys = [decoder decodeObjectForKey:kRDAlbumTrackKeys];
 
     return self;
 }
@@ -404,6 +443,8 @@ NSString *kRDAlbumTrackCount = @"trackCount";
     [object setBaseIcon:[self baseIcon]];
     object->_clean = NO;
     [object setClean:[self isClean]];
+    object->_compilation = NO;
+    [object setCompilation:[self isCompilation]];
     object->_downloadable = NO;
     [object setDownloadable:[self isDownloadable]];
     object->_downloadableAlbumOnly = NO;
@@ -416,6 +457,8 @@ NSString *kRDAlbumTrackCount = @"trackCount";
     [object setExplicit:[self isExplicit]];
     object->_iconURL = nil;
     [object setIconURL:[self iconURL]];
+    object->_iconLargeURL = nil;
+    [object setIconLargeURL:[self iconLargeURL]];
     object->_name = nil;
     [object setName:[self name]];
     object->_playCount = nil;
@@ -436,6 +479,8 @@ NSString *kRDAlbumTrackCount = @"trackCount";
     [object setSyncable:[self isSyncable]];
     object->_trackCount = nil;
     [object setTrackCount:[self trackCount]];
+    object->_trackKeys = nil;
+    [object setTrackKeys:[self trackKeys]];
 
     return object;
 }

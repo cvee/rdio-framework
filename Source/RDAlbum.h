@@ -47,12 +47,14 @@
     NSURL *_artistURL;
     NSString *_baseIcon;
     BOOL _clean;
+    BOOL _compilation;
     BOOL _downloadable;
     BOOL _downloadableAlbumOnly;
     NSNumber *_duration;
     NSURL *_embedURL;
     BOOL _explicit;
     NSURL *_iconURL;
+    NSURL *_iconLargeURL;
     NSString *_name;
     NSNumber *_playCount;
     NSNumber *_price;
@@ -63,6 +65,7 @@
     BOOL _streamable;
     BOOL _syncable;
     NSNumber *_trackCount;
+    NSArray *_trackKeys;
 }
 
 // Properties
@@ -71,12 +74,14 @@
 @property (nonatomic, retain, getter=artistURL, setter=setArtistURL) NSURL *_artistURL;
 @property (nonatomic, copy, getter=baseIcon, setter=setBaseIcon) NSString *_baseIcon;
 @property (nonatomic, assign, getter=isClean, setter=setClean) BOOL _clean;
+@property (nonatomic, assign, getter=isCompilation, setter=setCompilation) BOOL _compilation;
 @property (nonatomic, assign, getter=isDownloadable, setter=setDownloadable) BOOL _downloadable;
 @property (nonatomic, assign, getter=isDownloadableAlbumOnly, setter=setDownloadableAlbumOnly) BOOL _downloadableAlbumOnly;
 @property (nonatomic, retain, getter=duration, setter=setDuration) NSNumber *_duration;
 @property (nonatomic, retain, getter=embedURL, setter=setEmbedURL) NSURL *_embedURL;
 @property (nonatomic, assign, getter=isExplicit, setter=setExplicit) BOOL _explicit;
 @property (nonatomic, retain, getter=iconURL, setter=setIconURL) NSURL *_iconURL;
+@property (nonatomic, retain, getter=iconLargeURL, setter=setIconLargeURL) NSURL *_iconLargeURL;
 @property (nonatomic, copy, getter=name, setter=setName) NSString *_name;
 @property (nonatomic, retain, getter=playCount, setter=setPlayCount) NSNumber *_playCount;
 @property (nonatomic, retain, getter=price, setter=setPrice) NSNumber *_price;
@@ -87,6 +92,7 @@
 @property (nonatomic, assign, getter=isStreamable, setter=setStreamable) BOOL _streamable;
 @property (nonatomic, assign, getter=isSyncable, setter=setSyncable) BOOL _syncable;
 @property (nonatomic, retain, getter=trackCount, setter=setTrackCount) NSNumber *_trackCount;
+@property (nonatomic, copy, getter=trackKeys, setter=setTrackKeys) NSArray *_trackKeys;
 
 @end
 
