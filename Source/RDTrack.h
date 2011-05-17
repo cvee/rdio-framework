@@ -57,8 +57,10 @@
     NSURL *_embedURL;
     BOOL _explicit;
     NSURL *_iconURL;
+    NSURL *_iconLargeURL;
     NSNumber *_length;
     NSString *_name;
+    BOOL _onCompilation;
     NSNumber *_playCount;
     NSNumber *_price;
     NSURL *_profileURL;
@@ -66,6 +68,7 @@
     NSURL *_shortURL;
     BOOL _streamable;
     BOOL _syncable;
+    NSNumber *_trackNumber;
 }
 
 // Properties
@@ -85,8 +88,10 @@
 @property (nonatomic, retain, getter=embedURL, setter=setEmbedURL) NSURL *_embedURL;
 @property (nonatomic, assign, getter=isExplicit, setter=setExplicit) BOOL _explicit;
 @property (nonatomic, retain, getter=iconURL, setter=setIconURL) NSURL *_iconURL;
+@property (nonatomic, retain, getter=iconLargeURL, setter=setIconLargeURL) NSURL *_iconLargeURL;
 @property (nonatomic, retain, getter=length, setter=setLength) NSNumber *_length;
 @property (nonatomic, copy, getter=name, setter=setName) NSString *_name;
+@property (nonatomic, assign, getter=isOnCompilation, setter=setOnCompilation) BOOL _onCompilation;
 @property (nonatomic, retain, getter=playCount, setter=setPlayCount) NSNumber *_playCount;
 @property (nonatomic, retain, getter=price, setter=setPrice) NSNumber *_price;
 @property (nonatomic, retain, getter=profileURL, setter=setProfileURL) NSURL *_profileURL;
@@ -94,6 +99,7 @@
 @property (nonatomic, retain, getter=shortURL, setter=setShortURL) NSURL *_shortURL;
 @property (nonatomic, assign, getter=isStreamable, setter=setStreamable) BOOL _streamable;
 @property (nonatomic, assign, getter=isSyncable, setter=setSyncable) BOOL _syncable;
+@property (nonatomic, retain, getter=trackNumber, setter=setTrackNumber) NSNumber *_trackNumber;
 
 
 @end

@@ -58,8 +58,10 @@ NSString *kRDTrackDuration = @"duration";
 NSString *kRDTrackEmbedURL = @"embedURL";
 NSString *kRDTrackExplicit = @"explicit";
 NSString *kRDTrackIconURL = @"iconURL";
+NSString *kRDTrackIconLargeURL = @"iconLargeURL";
 NSString *kRDTrackLength = @"length";
 NSString *kRDTrackName = @"name";
+NSString *kRDTrackOnCompilation = @"onCompilation";
 NSString *kRDTrackPlayCount = @"playCount";
 NSString *kRDTrackPrice = @"price";
 NSString *kRDTrackProfileURL = @"profileURL";
@@ -67,6 +69,7 @@ NSString *kRDTrackSampleable = @"sampleable";
 NSString *kRDTrackShortURL = @"shortURL";
 NSString *kRDTrackStreamable = @"streamable";
 NSString *kRDTrackSyncable = @"syncable";
+NSString *kRDTrackTrackNumber = @"trackNumber";
 
 #pragma mark -
 
@@ -91,8 +94,10 @@ NSString *kRDTrackSyncable = @"syncable";
 @synthesize _embedURL;
 @synthesize _explicit;
 @synthesize _iconURL;
+@synthesize _iconLargeURL;
 @synthesize _length;
 @synthesize _name;
+@synthesize _onCompilation;
 @synthesize _playCount;
 @synthesize _price;
 @synthesize _profileURL;
@@ -100,6 +105,7 @@ NSString *kRDTrackSyncable = @"syncable";
 @synthesize _shortURL;
 @synthesize _streamable;
 @synthesize _syncable;
+@synthesize _trackNumber;
 
 #pragma mark -
 #pragma mark Initialization
@@ -230,6 +236,16 @@ NSString *kRDTrackSyncable = @"syncable";
         _iconURL = [(NSURL *)aIconURL retain];
     }
 
+    id aIconLargeURL = [aDictionary objectForKey:@"bigIcon"];
+    if ([aIconLargeURL isKindOfClass:[NSString class]])
+    {
+        _iconLargeURL = [[NSURL alloc] initWithString:aIconLargeURL];
+    }
+    if ([aIconLargeURL isKindOfClass:[NSURL class]])
+    {
+        _iconLargeURL = [(NSURL *)aIconLargeURL retain];
+    }
+
     id aLength = [aDictionary objectForKey:@"length"];
     if ([aLength isKindOfClass:[NSNumber class]])
     {
@@ -244,6 +260,12 @@ NSString *kRDTrackSyncable = @"syncable";
     if ([aName isKindOfClass:[NSString class]])
     {
         _name = [(NSString *)aName copy];
+    }
+
+    id aOnCompilation = [aDictionary objectForKey:@"isOnCompilation"];
+    if ([aOnCompilation isKindOfClass:[NSNumber class]])
+    {
+        _onCompilation = [(NSNumber *)aOnCompilation boolValue];
     }
 
     id aPlayCount = [aDictionary objectForKey:@"playCount"];
@@ -304,6 +326,16 @@ NSString *kRDTrackSyncable = @"syncable";
         _syncable = [(NSNumber *)aSyncable boolValue];
     }
 
+    id aTrackNumber = [aDictionary objectForKey:@"trackNum"];
+    if ([aTrackNumber isKindOfClass:[NSNumber class]])
+    {
+        _trackNumber = [(NSNumber *)aTrackNumber retain];
+    }
+    else if ([aTrackNumber isKindOfClass:[NSString class]])
+    {
+        _trackNumber = [[numberFormatter numberFromString:(NSString *)aTrackNumber] retain];
+    }
+
     [numberFormatter release];
 
     return self;
@@ -342,10 +374,13 @@ NSString *kRDTrackSyncable = @"syncable";
     _explicit = NO;
     [_iconURL release];
     _iconURL = nil;
+    [_iconLargeURL release];
+    _iconLargeURL = nil;
     [_length release];
     _length = nil;
     [_name release];
     _name = nil;
+    _onCompilation = NO;
     [_playCount release];
     _playCount = nil;
     [_price release];
@@ -357,6 +392,8 @@ NSString *kRDTrackSyncable = @"syncable";
     _shortURL = nil;
     _streamable = NO;
     _syncable = NO;
+    [_trackNumber release];
+    _trackNumber = nil;
 
     [super dealloc];
 }
@@ -384,8 +421,10 @@ NSString *kRDTrackSyncable = @"syncable";
     [encoder encodeObject:_embedURL forKey:kRDTrackEmbedURL];
     [encoder encodeBool:_explicit forKey:kRDTrackExplicit];
     [encoder encodeObject:_iconURL forKey:kRDTrackIconURL];
+    [encoder encodeObject:_iconLargeURL forKey:kRDTrackIconLargeURL];
     [encoder encodeObject:_length forKey:kRDTrackLength];
     [encoder encodeObject:_name forKey:kRDTrackName];
+    [encoder encodeBool:_onCompilation forKey:kRDTrackOnCompilation];
     [encoder encodeObject:_playCount forKey:kRDTrackPlayCount];
     [encoder encodeObject:_price forKey:kRDTrackPrice];
     [encoder encodeObject:_profileURL forKey:kRDTrackProfileURL];
@@ -393,6 +432,7 @@ NSString *kRDTrackSyncable = @"syncable";
     [encoder encodeObject:_shortURL forKey:kRDTrackShortURL];
     [encoder encodeBool:_streamable forKey:kRDTrackStreamable];
     [encoder encodeBool:_syncable forKey:kRDTrackSyncable];
+    [encoder encodeObject:_trackNumber forKey:kRDTrackTrackNumber];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder
@@ -415,8 +455,10 @@ NSString *kRDTrackSyncable = @"syncable";
     _embedURL = [decoder decodeObjectForKey:kRDTrackEmbedURL];
     _explicit = [decoder decodeBoolForKey:kRDTrackExplicit];
     _iconURL = [decoder decodeObjectForKey:kRDTrackIconURL];
+    _iconLargeURL = [decoder decodeObjectForKey:kRDTrackIconLargeURL];
     _length = [decoder decodeObjectForKey:kRDTrackLength];
     _name = [decoder decodeObjectForKey:kRDTrackName];
+    _onCompilation = [decoder decodeBoolForKey:kRDTrackOnCompilation];
     _playCount = [decoder decodeObjectForKey:kRDTrackPlayCount];
     _price = [decoder decodeObjectForKey:kRDTrackPrice];
     _profileURL = [decoder decodeObjectForKey:kRDTrackProfileURL];
@@ -424,6 +466,7 @@ NSString *kRDTrackSyncable = @"syncable";
     _shortURL = [decoder decodeObjectForKey:kRDTrackShortURL];
     _streamable = [decoder decodeBoolForKey:kRDTrackStreamable];
     _syncable = [decoder decodeBoolForKey:kRDTrackSyncable];
+    _trackNumber = [decoder decodeObjectForKey:kRDTrackTrackNumber];
 
     return self;
 }
@@ -467,10 +510,14 @@ NSString *kRDTrackSyncable = @"syncable";
     [object setExplicit:[self isExplicit]];
     object->_iconURL = nil;
     [object setIconURL:[self iconURL]];
+    object->_iconLargeURL = nil;
+    [object setIconLargeURL:[self iconLargeURL]];
     object->_length = nil;
     [object setLength:[self length]];
     object->_name = nil;
     [object setName:[self name]];
+    object->_onCompilation = NO;
+    [object setOnCompilation:[self isOnCompilation]];
     object->_playCount = nil;
     [object setPlayCount:[self playCount]];
     object->_price = nil;
@@ -485,6 +532,8 @@ NSString *kRDTrackSyncable = @"syncable";
     [object setStreamable:[self isStreamable]];
     object->_syncable = NO;
     [object setSyncable:[self isSyncable]];
+    object->_trackNumber = nil;
+    [object setTrackNumber:[self trackNumber]];
 
     return object;
 }
