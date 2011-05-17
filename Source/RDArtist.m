@@ -47,6 +47,8 @@ NSString *kRDArtistBaseIcon = @"baseIcon";
 NSString *kRDArtistIconURL = @"iconURL";
 NSString *kRDArtistName = @"name";
 NSString *kRDArtistProfileURL = @"profileURL";
+NSString *kRDArtistRadioStationAvailable = @"radioStationAvailable";
+NSString *kRDArtistShortURL = @"shortURL";
 NSString *kRDArtistTrackCount = @"trackCount";
 
 #pragma mark -
@@ -56,12 +58,14 @@ NSString *kRDArtistTrackCount = @"trackCount";
 #pragma mark -
 #pragma mark Properties
 
-@synthesize albumCount;
-@synthesize baseIcon;
-@synthesize iconURL;
-@synthesize name;
-@synthesize profileURL;
-@synthesize trackCount;
+@synthesize _albumCount;
+@synthesize _baseIcon;
+@synthesize _iconURL;
+@synthesize _name;
+@synthesize _profileURL;
+@synthesize _radioStationAvailable;
+@synthesize _shortURL;
+@synthesize _trackCount;
 
 #pragma mark -
 #pragma mark Initialization
@@ -79,53 +83,69 @@ NSString *kRDArtistTrackCount = @"trackCount";
     id aAlbumCount = [aDictionary objectForKey:@"album_count"];
     if ([aAlbumCount isKindOfClass:[NSNumber class]])
     {
-        albumCount = [(NSNumber *)aAlbumCount retain];
+        _albumCount = [(NSNumber *)aAlbumCount retain];
     }
     else if ([aAlbumCount isKindOfClass:[NSString class]])
     {
-        albumCount = [[numberFormatter numberFromString:(NSString *)aAlbumCount] retain];
+        _albumCount = [[numberFormatter numberFromString:(NSString *)aAlbumCount] retain];
     }
 
     id aBaseIcon = [aDictionary objectForKey:@"baseIcon"];
     if ([aBaseIcon isKindOfClass:[NSString class]])
     {
-        baseIcon = [(NSString *)aBaseIcon copy];
+        _baseIcon = [(NSString *)aBaseIcon copy];
     }
 
     id aIconURL = [aDictionary objectForKey:@"icon"];
     if ([aIconURL isKindOfClass:[NSString class]])
     {
-        iconURL = [[NSURL alloc] initWithString:(NSString *)aIconURL];
+        _iconURL = [[NSURL alloc] initWithString:(NSString *)aIconURL];
     }
     if ([aIconURL isKindOfClass:[NSURL class]])
     {
-        iconURL = [(NSURL *)aIconURL retain];
+        _iconURL = [(NSURL *)aIconURL retain];
     }
 
     id aName = [aDictionary objectForKey:@"name"];
     if ([aName isKindOfClass:[NSString class]])
     {
-        name = [(NSString *)aName copy];
+        _name = [(NSString *)aName copy];
     }
 
     id aProfileURL = [aDictionary objectForKey:@"url"];
     if ([aProfileURL isKindOfClass:[NSString class]])
     {
-        profileURL = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"%@%@", RDWebsiteBaseURLString, (NSString *)aProfileURL]];
+        _profileURL = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"%@%@", RDWebsiteBaseURLString, (NSString *)aProfileURL]];
     }
     if ([aProfileURL isKindOfClass:[NSURL class]])
     {
-        profileURL = [(NSURL *)aProfileURL retain];
+        _profileURL = [(NSURL *)aProfileURL retain];
+    }
+
+    id aRadioStationAvailable = [aDictionary objectForKey:@"hasRadio"];
+    if ([aRadioStationAvailable isKindOfClass:[NSNumber class]])
+    {
+        _radioStationAvailable = [(NSNumber *)aRadioStationAvailable boolValue];
+    }
+
+    id aShortURL = [aDictionary objectForKey:@"shortUrl"];
+    if ([aShortURL isKindOfClass:[NSString class]])
+    {
+        _shortURL = [[NSURL alloc] initWithString:aShortURL];
+    }
+    if ([aShortURL isKindOfClass:[NSURL class]])
+    {
+        _shortURL = [(NSURL *)aShortURL retain];
     }
 
     id aTrackCount = [aDictionary objectForKey:@"length"];
     if ([aTrackCount isKindOfClass:[NSNumber class]])
     {
-        trackCount = [(NSNumber *)aTrackCount retain];
+        _trackCount = [(NSNumber *)aTrackCount retain];
     }
     else if ([aTrackCount isKindOfClass:[NSString class]])
     {
-        trackCount = [[numberFormatter numberFromString:(NSString *)aTrackCount] retain];
+        _trackCount = [[numberFormatter numberFromString:(NSString *)aTrackCount] retain];
     }
 
     [numberFormatter release];
@@ -138,18 +158,21 @@ NSString *kRDArtistTrackCount = @"trackCount";
 
 - (void)dealloc
 {
-    [albumCount release];
-    albumCount = nil;
-    [baseIcon release];
-    baseIcon = nil;
-    [iconURL release];
-    iconURL = nil;
-    [name release];
-    name = nil;
-    [profileURL release];
-    profileURL = nil;
-    [trackCount release];
-    trackCount = nil;
+    [_albumCount release];
+    _albumCount = nil;
+    [_baseIcon release];
+    _baseIcon = nil;
+    [_iconURL release];
+    _iconURL = nil;
+    [_name release];
+    _name = nil;
+    [_profileURL release];
+    _profileURL = nil;
+    _radioStationAvailable = NO;
+    [_shortURL release];
+    _shortURL = nil;
+    [_trackCount release];
+    _trackCount = nil;
 
     [super dealloc];
 }
@@ -161,24 +184,28 @@ NSString *kRDArtistTrackCount = @"trackCount";
 {
     [super encodeWithCoder:encoder];
 
-    [encoder encodeObject:albumCount forKey:kRDArtistAlbumCount];
-    [encoder encodeObject:baseIcon forKey:kRDArtistBaseIcon];
-    [encoder encodeObject:iconURL forKey:kRDArtistIconURL];
-    [encoder encodeObject:name forKey:kRDArtistName];
-    [encoder encodeObject:profileURL forKey:kRDArtistProfileURL];
-    [encoder encodeObject:trackCount forKey:kRDArtistTrackCount];
+    [encoder encodeObject:_albumCount forKey:kRDArtistAlbumCount];
+    [encoder encodeObject:_baseIcon forKey:kRDArtistBaseIcon];
+    [encoder encodeObject:_iconURL forKey:kRDArtistIconURL];
+    [encoder encodeObject:_name forKey:kRDArtistName];
+    [encoder encodeObject:_profileURL forKey:kRDArtistProfileURL];
+    [encoder encodeBool:_radioStationAvailable forKey:kRDArtistRadioStationAvailable];
+    [encoder encodeObject:_shortURL forKey:kRDArtistShortURL];
+    [encoder encodeObject:_trackCount forKey:kRDArtistTrackCount];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder
 {
     if (!(self = [self initWithCoder:decoder])) return nil;
 
-    albumCount = [decoder decodeObjectForKey:kRDArtistAlbumCount];
-    baseIcon = [decoder decodeObjectForKey:kRDArtistBaseIcon];
-    iconURL = [decoder decodeObjectForKey:kRDArtistIconURL];
-    name = [decoder decodeObjectForKey:kRDArtistName];
-    profileURL = [decoder decodeObjectForKey:kRDArtistIconURL];
-    trackCount = [decoder decodeObjectForKey:kRDArtistTrackCount];
+    _albumCount = [decoder decodeObjectForKey:kRDArtistAlbumCount];
+    _baseIcon = [decoder decodeObjectForKey:kRDArtistBaseIcon];
+    _iconURL = [decoder decodeObjectForKey:kRDArtistIconURL];
+    _name = [decoder decodeObjectForKey:kRDArtistName];
+    _profileURL = [decoder decodeObjectForKey:kRDArtistIconURL];
+    _radioStationAvailable = [decoder decodeBoolForKey:kRDArtistRadioStationAvailable];
+    _shortURL = [decoder decodeObjectForKey:kRDArtistShortURL];
+    _trackCount = [decoder decodeObjectForKey:kRDArtistTrackCount];
 
     return self;
 }
@@ -190,17 +217,21 @@ NSString *kRDArtistTrackCount = @"trackCount";
 {
     RDArtist *object = [super copyWithZone:zone];
 
-    object->albumCount = nil;
+    object->_albumCount = nil;
     [object setAlbumCount:[self albumCount]];
-    object->baseIcon = nil;
+    object->_baseIcon = nil;
     [object setBaseIcon:[self baseIcon]];
-    object->iconURL = nil;
+    object->_iconURL = nil;
     [object setIconURL:[self iconURL]];
-    object->name = nil;
+    object->_name = nil;
     [object setName:[self name]];
-    object->profileURL = nil;
+    object->_profileURL = nil;
     [object setProfileURL:[self profileURL]];
-    object->trackCount = nil;
+    object->_radioStationAvailable = NO;
+    [object setRadioStationAvailable:[self isRadioStationAvailable]];
+    object->_shortURL = nil;
+    [object setShortURL:[self shortURL]];
+    object->_trackCount = nil;
     [object setTrackCount:[self trackCount]];
 
     return object;
