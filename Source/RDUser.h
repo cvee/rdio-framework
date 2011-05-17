@@ -43,33 +43,39 @@
 
 @interface RDUser : RDObject
 {
-    NSString *baseIcon;
-    NSString *displayName;
-    NSString *firstName;
-    NSString *gender;
-    NSURL *iconURL;
-    NSString *lastName;
-    RDTrack *lastSongPlayed;
-    NSDate *lastSongPlayTime;
-    NSNumber *libraryVersion;
-    NSURL *profileURL;
-    NSNumber *trackCount;
-    NSString *userName;
+    NSString *_baseIcon;
+    NSString *_displayName;
+    NSString *_firstName;
+    NSString *_gender;
+    NSURL *_iconURL;
+    NSString *_lastName;
+    RDTrack *_lastSongPlayed;
+    NSDate *_lastSongPlayTime;
+    NSNumber *_libraryVersion;
+    NSURL *_profileURL;
+    BOOL _subscriber;
+    NSNumber *_trackCount;
+    BOOL _trial;
+    BOOL _unlimited;
+    NSString *_userName;
 }
 
 // Properties
-@property (nonatomic, copy) NSString *baseIcon;
-@property (nonatomic, copy) NSString *displayName;
-@property (nonatomic, copy) NSString *firstName;
-@property (nonatomic, copy) NSString *gender;
-@property (nonatomic, retain) NSURL *iconURL;
-@property (nonatomic, copy) NSString *lastName;
-@property (nonatomic, retain) RDTrack *lastSongPlayed;
-@property (nonatomic, retain) NSDate *lastSongPlayTime;
-@property (nonatomic, retain) NSNumber *libraryVersion;
-@property (nonatomic, retain) NSURL *profileURL;
-@property (nonatomic, retain) NSNumber *trackCount;
-@property (nonatomic, copy) NSString *userName;
+@property (nonatomic, copy, getter=baseIcon, setter=setBaseIcon) NSString *_baseIcon;
+@property (nonatomic, copy, getter=displayName, setter=setDisplayName) NSString *_displayName;
+@property (nonatomic, copy, getter=firstName, setter=setFirstName) NSString *_firstName;
+@property (nonatomic, copy, getter=gender, setter=setGender) NSString *_gender;
+@property (nonatomic, retain, getter=iconURL, setter=setIconURL) NSURL *_iconURL;
+@property (nonatomic, copy, getter=lastName, setter=setLastName) NSString *_lastName;
+@property (nonatomic, retain, getter=lastSongPlayed, setter=setLastSongPlayed) RDTrack *_lastSongPlayed;
+@property (nonatomic, retain, getter=lastSongPlayTime, setter=setLastSongPlayTime) NSDate *_lastSongPlayTime;
+@property (nonatomic, retain, getter=libraryVersion, setter=setLibraryVersion) NSNumber *_libraryVersion;
+@property (nonatomic, retain, getter=profileURL, setter=setProfileURL) NSURL *_profileURL;
+@property (nonatomic, assign, getter=isSubscriber, setter=setSubscriber) BOOL _subscriber;
+@property (nonatomic, retain, getter=trackCount, setter=setTrackCount) NSNumber *_trackCount;
+@property (nonatomic, assign, getter=isTrial, setter=setTrial) BOOL _trial;
+@property (nonatomic, assign, getter=isUnlimited, setter=setUnlimited) BOOL _unlimited;
+@property (nonatomic, copy, getter=userName, setter=setUserName) NSString *_userName;
 
 @end
 

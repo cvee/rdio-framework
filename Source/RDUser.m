@@ -56,7 +56,10 @@ NSString *kRDUserLastSongPlayed = @"lastSongPlayed";
 NSString *kRDUserLastSongPlayTime = @"lastSongPlayTime";
 NSString *kRDUserLibraryVersion = @"libraryVersion";
 NSString *kRDUserProfileURL = @"profileURL";
+NSString *kRDUserSubscriber = @"subscriber";
 NSString *kRDUserTrackCount = @"trackCount";
+NSString *kRDUserTrial = @"trial";
+NSString *kRDUserUnlimited = @"unlimited";
 NSString *kRDUserUserName = @"userName";
 
 #pragma mark -
@@ -66,18 +69,21 @@ NSString *kRDUserUserName = @"userName";
 #pragma mark -
 #pragma mark Properties
 
-@synthesize baseIcon;
-@synthesize displayName;
-@synthesize firstName;
-@synthesize gender;
-@synthesize iconURL;
-@synthesize lastName;
-@synthesize lastSongPlayed;
-@synthesize lastSongPlayTime;
-@synthesize libraryVersion;
-@synthesize profileURL;
-@synthesize trackCount;
-@synthesize userName;
+@synthesize _baseIcon;
+@synthesize _displayName;
+@synthesize _firstName;
+@synthesize _gender;
+@synthesize _iconURL;
+@synthesize _lastName;
+@synthesize _lastSongPlayed;
+@synthesize _lastSongPlayTime;
+@synthesize _libraryVersion;
+@synthesize _profileURL;
+@synthesize _subscriber;
+@synthesize _trackCount;
+@synthesize _trial;
+@synthesize _unlimited;
+@synthesize _userName;
 
 #pragma mark -
 #pragma mark Initialization
@@ -96,95 +102,113 @@ NSString *kRDUserUserName = @"userName";
     id aBaseIcon = [aDictionary objectForKey:@"baseIcon"];
     if ([aBaseIcon isKindOfClass:[NSString class]])
     {
-        baseIcon = [(NSString *)aBaseIcon copy];
+        _baseIcon = [(NSString *)aBaseIcon copy];
     }
 
     id aDisplayName = [aDictionary objectForKey:@"displayName"];
     if ([aDisplayName isKindOfClass:[NSString class]])
     {
-        displayName = [(NSString *)aDisplayName copy];
+        _displayName = [(NSString *)aDisplayName copy];
     }
 
     id aFirstName = [aDictionary objectForKey:@"firstName"];
     if ([aFirstName isKindOfClass:[NSString class]])
     {
-        firstName = [(NSString *)aFirstName copy];
+        _firstName = [(NSString *)aFirstName copy];
     }
 
     id aGender = [aDictionary objectForKey:@"gender"];
     if ([aGender isKindOfClass:[NSString class]])
     {
-        gender = [(NSString *)aGender copy];
+        _gender = [(NSString *)aGender copy];
     }
 
     id aIconURL = [aDictionary objectForKey:@"icon"];
     if ([aIconURL isKindOfClass:[NSString class]])
     {
-        iconURL = [[NSURL alloc] initWithString:aIconURL];
+        _iconURL = [[NSURL alloc] initWithString:aIconURL];
     }
     if ([aIconURL isKindOfClass:[NSURL class]])
     {
-        iconURL = [(NSURL *)aIconURL retain];
+        _iconURL = [(NSURL *)aIconURL retain];
     }
 
     id aLastName = [aDictionary objectForKey:@"lastName"];
     if ([aLastName isKindOfClass:[NSString class]])
     {
-        lastName = [(NSString *)aLastName copy];
+        _lastName = [(NSString *)aLastName copy];
     }
 
     id aLastSongPlayed = [aDictionary objectForKey:@"lastSongPlayed"];
     if ([aLastSongPlayed isKindOfClass:[NSDictionary class]])
     {
-        lastSongPlayed = [[RDTrack alloc] initWithDictionary:(NSDictionary *)aLastSongPlayed];
+        _lastSongPlayed = [[RDTrack alloc] initWithDictionary:(NSDictionary *)aLastSongPlayed];
     }
 
     id aLastSongPlayTime = [aDictionary objectForKey:@"lastSongPlayTime"];
     if ([aLastSongPlayTime isKindOfClass:[NSDate class]])
     {
-        lastSongPlayTime = [(NSDate *)aLastSongPlayTime retain];
+        _lastSongPlayTime = [(NSDate *)aLastSongPlayTime retain];
     }
     else if ([aLastSongPlayTime isKindOfClass:[NSString class]])
     {
         //ISO 8601 Combined date and time representation
         [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm"];
-        lastSongPlayTime = [[dateFormatter dateFromString:(NSString *)aLastSongPlayTime] retain];
+        _lastSongPlayTime = [[dateFormatter dateFromString:(NSString *)aLastSongPlayTime] retain];
     }
 
     id aLibraryVersion = [aDictionary objectForKey:@"libraryVersion"];
     if ([aLibraryVersion isKindOfClass:[NSNumber class]])
     {
-        libraryVersion = [(NSNumber *)aLibraryVersion retain];
+        _libraryVersion = [(NSNumber *)aLibraryVersion retain];
     }
     else if ([aLibraryVersion isKindOfClass:[NSString class]])
     {
-        libraryVersion = [[numberFormatter numberFromString:(NSString *)aLibraryVersion] retain];
+        _libraryVersion = [[numberFormatter numberFromString:(NSString *)aLibraryVersion] retain];
     }
 
     id aProfileURL = [aDictionary objectForKey:@"url"];
     if ([aProfileURL isKindOfClass:[NSString class]])
     {
-        profileURL = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"%@%@", RDWebsiteBaseURLString, (NSString *)aProfileURL]];
+        _profileURL = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"%@%@", RDWebsiteBaseURLString, (NSString *)aProfileURL]];
     }
     if ([aProfileURL isKindOfClass:[NSURL class]])
     {
-        profileURL = [(NSURL *)aProfileURL retain];
+        _profileURL = [(NSURL *)aProfileURL retain];
+    }
+
+    id aSubscriber = [aDictionary objectForKey:@"isSubscriber"];
+    if ([aSubscriber isKindOfClass:[NSNumber class]])
+    {
+        _subscriber = [(NSNumber *)aSubscriber boolValue];
     }
 
     id aTrackCount = [aDictionary objectForKey:@"trackCount"];
     if ([aTrackCount isKindOfClass:[NSNumber class]])
     {
-        trackCount = [(NSNumber *)aTrackCount retain];
+        _trackCount = [(NSNumber *)aTrackCount retain];
     }
     else if ([aTrackCount isKindOfClass:[NSString class]])
     {
-        trackCount = [[numberFormatter numberFromString:(NSString *)aTrackCount] retain];
+        _trackCount = [[numberFormatter numberFromString:(NSString *)aTrackCount] retain];
+    }
+
+    id aTrial = [aDictionary objectForKey:@"isTrial"];
+    if ([aTrial isKindOfClass:[NSNumber class]])
+    {
+        _trial = [(NSNumber *)aTrial boolValue];
+    }
+
+    id aUnlimited = [aDictionary objectForKey:@"isUnlimited"];
+    if ([aUnlimited isKindOfClass:[NSNumber class]])
+    {
+        _unlimited = [(NSNumber *)aUnlimited boolValue];
     }
 
     id aUserName = [aDictionary objectForKey:@"username"];
     if ([aUserName isKindOfClass:[NSString class]])
     {
-        userName = [(NSString *)aUserName copy];
+        _userName = [(NSString *)aUserName copy];
     }
 
     [dateFormatter release];
@@ -198,30 +222,33 @@ NSString *kRDUserUserName = @"userName";
 
 - (void)dealloc
 {
-    [baseIcon release];
-    baseIcon = nil;
-    [displayName release];
-    displayName = nil;
-    [firstName release];
-    firstName = nil;
-    [gender release];
-    gender = nil;
-    [iconURL release];
-    iconURL = nil;
-    [lastName release];
-    lastName = nil;
-    [lastSongPlayed release];
-    lastSongPlayed = nil;
-    [lastSongPlayTime release];
-    lastSongPlayTime = nil;
-    [libraryVersion release];
-    libraryVersion = nil;
-    [profileURL release];
-    profileURL = nil;
-    [trackCount release];
-    trackCount = nil;
-    [userName release];
-    userName = nil;
+    [_baseIcon release];
+    _baseIcon = nil;
+    [_displayName release];
+    _displayName = nil;
+    [_firstName release];
+    _firstName = nil;
+    [_gender release];
+    _gender = nil;
+    [_iconURL release];
+    _iconURL = nil;
+    [_lastName release];
+    _lastName = nil;
+    [_lastSongPlayed release];
+    _lastSongPlayed = nil;
+    [_lastSongPlayTime release];
+    _lastSongPlayTime = nil;
+    [_libraryVersion release];
+    _libraryVersion = nil;
+    [_profileURL release];
+    _profileURL = nil;
+    _subscriber = NO;
+    [_trackCount release];
+    _trackCount = nil;
+    _trial = NO;
+    _unlimited = NO;
+    [_userName release];
+    _userName = nil;
 
     [super dealloc];
 }
@@ -233,36 +260,42 @@ NSString *kRDUserUserName = @"userName";
 {
     [super encodeWithCoder:encoder];
 
-    [encoder encodeObject:baseIcon forKey:kRDUserBaseIcon];
-    [encoder encodeObject:displayName forKey:kRDUserDisplayName];
-    [encoder encodeObject:firstName forKey:kRDUserFirstName];
-    [encoder encodeObject:gender forKey:kRDUserGender];
-    [encoder encodeObject:iconURL forKey:kRDUserIconURL];
-    [encoder encodeObject:lastName forKey:kRDUserLastName];
-    [encoder encodeObject:lastSongPlayed forKey:kRDUserLastSongPlayed];
-    [encoder encodeObject:lastSongPlayTime forKey:kRDUserLastSongPlayTime];
-    [encoder encodeObject:libraryVersion forKey:kRDUserLibraryVersion];
-    [encoder encodeObject:profileURL forKey:kRDUserProfileURL];
-    [encoder encodeObject:trackCount forKey:kRDUserTrackCount];
-    [encoder encodeObject:userName forKey:kRDUserUserName];
+    [encoder encodeObject:_baseIcon forKey:kRDUserBaseIcon];
+    [encoder encodeObject:_displayName forKey:kRDUserDisplayName];
+    [encoder encodeObject:_firstName forKey:kRDUserFirstName];
+    [encoder encodeObject:_gender forKey:kRDUserGender];
+    [encoder encodeObject:_iconURL forKey:kRDUserIconURL];
+    [encoder encodeObject:_lastName forKey:kRDUserLastName];
+    [encoder encodeObject:_lastSongPlayed forKey:kRDUserLastSongPlayed];
+    [encoder encodeObject:_lastSongPlayTime forKey:kRDUserLastSongPlayTime];
+    [encoder encodeObject:_libraryVersion forKey:kRDUserLibraryVersion];
+    [encoder encodeObject:_profileURL forKey:kRDUserProfileURL];
+    [encoder encodeBool:_subscriber forKey:kRDUserSubscriber];
+    [encoder encodeObject:_trackCount forKey:kRDUserTrackCount];
+    [encoder encodeBool:_trial forKey:kRDUserTrial];
+    [encoder encodeBool:_unlimited forKey:kRDUserUnlimited];
+    [encoder encodeObject:_userName forKey:kRDUserUserName];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder
 {
     if (!(self = [self initWithCoder:decoder])) return nil;
 
-    baseIcon = [decoder decodeObjectForKey:kRDUserBaseIcon];
-    displayName = [decoder decodeObjectForKey:kRDUserDisplayName];
-    firstName = [decoder decodeObjectForKey:kRDUserFirstName];
-    gender = [decoder decodeObjectForKey:kRDUserGender];
-    iconURL = [decoder decodeObjectForKey:kRDUserIconURL];
-    lastName = [decoder decodeObjectForKey:kRDUserLastName];
-    lastSongPlayed = [decoder decodeObjectForKey:kRDUserLastSongPlayed];
-    lastSongPlayTime = [decoder decodeObjectForKey:kRDUserLastSongPlayTime];
-    libraryVersion = [decoder decodeObjectForKey:kRDUserLibraryVersion];
-    profileURL = [decoder decodeObjectForKey:kRDUserProfileURL];
-    trackCount = [decoder decodeObjectForKey:kRDUserTrackCount];
-    userName = [decoder decodeObjectForKey:kRDUserUserName];
+    _baseIcon = [decoder decodeObjectForKey:kRDUserBaseIcon];
+    _displayName = [decoder decodeObjectForKey:kRDUserDisplayName];
+    _firstName = [decoder decodeObjectForKey:kRDUserFirstName];
+    _gender = [decoder decodeObjectForKey:kRDUserGender];
+    _iconURL = [decoder decodeObjectForKey:kRDUserIconURL];
+    _lastName = [decoder decodeObjectForKey:kRDUserLastName];
+    _lastSongPlayed = [decoder decodeObjectForKey:kRDUserLastSongPlayed];
+    _lastSongPlayTime = [decoder decodeObjectForKey:kRDUserLastSongPlayTime];
+    _libraryVersion = [decoder decodeObjectForKey:kRDUserLibraryVersion];
+    _profileURL = [decoder decodeObjectForKey:kRDUserProfileURL];
+    _subscriber = [decoder decodeBoolForKey:kRDUserSubscriber];
+    _trackCount = [decoder decodeObjectForKey:kRDUserTrackCount];
+    _trial = [decoder decodeBoolForKey:kRDUserTrial];
+    _unlimited = [decoder decodeBoolForKey:kRDUserUnlimited];
+    _userName = [decoder decodeObjectForKey:kRDUserUserName];
 
     return self;
 }
@@ -274,29 +307,35 @@ NSString *kRDUserUserName = @"userName";
 {
     RDUser *object = [super copyWithZone:zone];
 
-    object->baseIcon = nil;
+    object->_baseIcon = nil;
     [object setBaseIcon:[self baseIcon]];
-    object->displayName = nil;
+    object->_displayName = nil;
     [object setDisplayName:[self displayName]];
-    object->firstName = nil;
+    object->_firstName = nil;
     [object setFirstName:[self firstName]];
-    object->gender = nil;
+    object->_gender = nil;
     [object setGender:[self gender]];
-    object->iconURL = nil;
+    object->_iconURL = nil;
     [object setIconURL:[self iconURL]];
-    object->lastName = nil;
+    object->_lastName = nil;
     [object setLastName:[self lastName]];
-    object->lastSongPlayed = nil;
+    object->_lastSongPlayed = nil;
     [object setLastSongPlayed:[self lastSongPlayed]];
-    object->lastSongPlayTime = nil;
+    object->_lastSongPlayTime = nil;
     [object setLastSongPlayTime:[self lastSongPlayTime]];
-    object->libraryVersion = nil;
+    object->_libraryVersion = nil;
     [object setLibraryVersion:[self libraryVersion]];
-    object->profileURL = nil;
+    object->_profileURL = nil;
     [object setProfileURL:[self profileURL]];
-    object->trackCount = nil;
+    object->_subscriber = NO;
+    [object setSubscriber:[self isSubscriber]];
+    object->_trackCount = nil;
     [object setTrackCount:[self trackCount]];
-    object->userName = nil;
+    object->_trial = NO;
+    [object setTrial:[self isTrial]];
+    object->_unlimited = NO;
+    [object setUnlimited:[self isUnlimited]];
+    object->_userName = nil;
     [object setUserName:[self userName]];
 
     return object;
