@@ -45,11 +45,13 @@
     NSString *_baseIcon;
     NSURL *_embedURL;
     NSURL *_iconURL;
+    NSURL *_iconLargeURL;
     NSDate *_lastUpdated;
     NSString *_name;
     NSURL *_profileURL;
     NSURL *_shortURL;
     NSNumber *_trackCount;
+    NSArray *_trackKeys;
     NSString *_userKey;
     NSString *_userDisplayName;
     NSURL *_userIconURL;
@@ -60,6 +62,7 @@
 @property (nonatomic, copy, getter=baseIcon, setter=setBaseIcon) NSString *_baseIcon;
 @property (nonatomic, retain, getter=embedURL, setter=setEmbedURL) NSURL *_embedURL;
 @property (nonatomic, retain, getter=iconURL, setter=setIconURL) NSURL *_iconURL;
+@property (nonatomic, retain, getter=iconLargeURL, setter=setIconLargeURL) NSURL *_iconLargeURL;
 @property (nonatomic, retain, getter=lastUpdated, setter=setLastUpdated) NSDate *_lastUpdated;
 @property (nonatomic, copy, getter=name, setter=setName) NSString *_name;
 @property (nonatomic, retain, getter=profileURL, setter=setProfileURL) NSURL *_profileURL;
@@ -69,6 +72,7 @@
 @property (nonatomic, copy, getter=userDisplayName, setter=setUserDisplayName) NSString *_userDisplayName;
 @property (nonatomic, retain, getter=userIconURL, setter=setUserIconURL) NSURL *_userIconURL;
 @property (nonatomic, retain, getter=userProfileURL, setter=setUserProfileURL) NSURL *_userProfileURL;
+@property (nonatomic, copy, getter=trackKeys, setter=setTrackKeys) NSArray *_trackKeys;
 
 
 @end

@@ -48,11 +48,13 @@
 NSString *kRDPlaylistBaseIcon = @"baseIcon";
 NSString *kRDPlaylistEmbedURL = @"embedURL";
 NSString *kRDPlaylistIconURL = @"iconURL";
+NSString *kRDPlaylistIconLargeURL = @"iconLargeURL";
 NSString *kRDPlaylistLastUpdated = @"lastUpdated";
 NSString *kRDPlaylistName = @"name";
 NSString *kRDPlaylistProfileURL = @"profileURL";
 NSString *kRDPlaylistShortURL = @"shortURL";
 NSString *kRDPlaylistTrackCount = @"trackCount";
+NSString *kRDPlaylistTrackKeys = @"trackKeys";
 NSString *kRDPlaylistUserDisplayName = @"userDisplayName";
 NSString *kRDPlaylistUserIconURL = @"userIconURL";
 NSString *kRDPlaylistUserKey = @"userKey";
@@ -69,11 +71,13 @@ NSString *kRDPlaylistUserProfileURL = @"userProfileURL";
 @synthesize _baseIcon;
 @synthesize _embedURL;
 @synthesize _iconURL;
+@synthesize _iconLargeURL;
 @synthesize _lastUpdated;
 @synthesize _name;
 @synthesize _profileURL;
 @synthesize _shortURL;
 @synthesize _trackCount;
+@synthesize _trackKeys;
 @synthesize _userDisplayName;
 @synthesize _userIconURL;
 @synthesize _userKey;
@@ -117,6 +121,16 @@ NSString *kRDPlaylistUserProfileURL = @"userProfileURL";
     if ([aIconURL isKindOfClass:[NSURL class]])
     {
         _iconURL = [(NSURL *)aIconURL retain];
+    }
+
+    id aIconLargeURL = [aDictionary objectForKey:@"bigIcon"];
+    if ([aIconLargeURL isKindOfClass:[NSString class]])
+    {
+        _iconLargeURL = [[NSURL alloc] initWithString:aIconLargeURL];
+    }
+    if ([aIconLargeURL isKindOfClass:[NSURL class]])
+    {
+        _iconLargeURL = [(NSURL *)aIconLargeURL retain];
     }
 
     id aLastUpdated = [aDictionary objectForKey:@"lastUpdated"];
@@ -163,6 +177,12 @@ NSString *kRDPlaylistUserProfileURL = @"userProfileURL";
     else if ([aTrackCount isKindOfClass:[NSString class]])
     {
         _trackCount = [[numberFormatter numberFromString:(NSString *)aTrackCount] retain];
+    }
+
+    id aTrackKeys = [aDictionary objectForKey:@"trackKeys"];
+    if ([aTrackKeys isKindOfClass:[NSArray class]])
+    {
+        _trackKeys = [(NSArray *)aTrackKeys copy];
     }
 
     id aUserDisplayName = [aDictionary objectForKey:@"owner"];
@@ -214,6 +234,8 @@ NSString *kRDPlaylistUserProfileURL = @"userProfileURL";
     _embedURL = nil;
     [_iconURL release];
     _iconURL = nil;
+    [_iconLargeURL release];
+    _iconLargeURL = nil;
     [_lastUpdated release];
     _lastUpdated = nil;
     [_name release];
@@ -224,6 +246,8 @@ NSString *kRDPlaylistUserProfileURL = @"userProfileURL";
     _shortURL = nil;
     [_trackCount release];
     _trackCount = nil;
+    [_trackKeys release];
+    _trackKeys = nil;
     [_userDisplayName release];
     _userDisplayName = nil;
     [_userProfileURL release];
@@ -246,11 +270,13 @@ NSString *kRDPlaylistUserProfileURL = @"userProfileURL";
     [encoder encodeObject:_baseIcon forKey:kRDPlaylistBaseIcon];
     [encoder encodeObject:_embedURL forKey:kRDPlaylistEmbedURL];
     [encoder encodeObject:_iconURL forKey:kRDPlaylistIconURL];
+    [encoder encodeObject:_iconLargeURL forKey:kRDPlaylistIconLargeURL];
     [encoder encodeObject:_lastUpdated forKey:kRDPlaylistLastUpdated];
     [encoder encodeObject:_name forKey:kRDPlaylistName];
     [encoder encodeObject:_profileURL forKey:kRDPlaylistProfileURL];
     [encoder encodeObject:_shortURL forKey:kRDPlaylistShortURL];
     [encoder encodeObject:_trackCount forKey:kRDPlaylistTrackCount];
+    [encoder encodeObject:_trackKeys forKey:kRDPlaylistTrackKeys];
     [encoder encodeObject:_userDisplayName forKey:kRDPlaylistUserDisplayName];
     [encoder encodeObject:_userIconURL forKey:kRDPlaylistUserIconURL];
     [encoder encodeObject:_userKey forKey:kRDPlaylistUserKey];
@@ -264,11 +290,13 @@ NSString *kRDPlaylistUserProfileURL = @"userProfileURL";
     _baseIcon = [decoder decodeObjectForKey:kRDPlaylistBaseIcon];
     _embedURL = [decoder decodeObjectForKey:kRDPlaylistEmbedURL];
     _iconURL = [decoder decodeObjectForKey:kRDPlaylistIconURL];
+    _iconLargeURL = [decoder decodeObjectForKey:kRDPlaylistIconLargeURL];
     _lastUpdated = [decoder decodeObjectForKey:kRDPlaylistLastUpdated];
     _name = [decoder decodeObjectForKey:kRDPlaylistName];
     _profileURL = [decoder decodeObjectForKey:kRDPlaylistProfileURL];
     _shortURL = [decoder decodeObjectForKey:kRDPlaylistShortURL];
     _trackCount = [decoder decodeObjectForKey:kRDPlaylistTrackCount];
+    _trackKeys = [decoder decodeObjectForKey:kRDPlaylistTrackKeys];
     _userDisplayName = [decoder decodeObjectForKey:kRDPlaylistUserDisplayName];
     _userIconURL = [decoder decodeObjectForKey:kRDPlaylistUserIconURL];
     _userKey = [decoder decodeObjectForKey:kRDPlaylistUserKey];
@@ -290,6 +318,8 @@ NSString *kRDPlaylistUserProfileURL = @"userProfileURL";
     [object setEmbedURL:[self embedURL]];
     object->_iconURL = nil;
     [object setIconURL:[self iconURL]];
+    object->_iconLargeURL = nil;
+    [object setIconLargeURL:[self iconLargeURL]];
     object->_lastUpdated = nil;
     [object setLastUpdated:[self lastUpdated]];
     object->_name = nil;
@@ -300,6 +330,8 @@ NSString *kRDPlaylistUserProfileURL = @"userProfileURL";
     [object setShortURL:[self shortURL]];
     object->_trackCount = nil;
     [object setTrackCount:[self trackCount]];
+    object->_trackKeys = nil;
+    [object setTrackKeys:[self trackKeys]];
     object->_userDisplayName = nil;
     [object setUserDisplayName:[self userDisplayName]];
     object->_userIconURL = nil;
