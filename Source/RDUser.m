@@ -47,14 +47,21 @@
 #pragma mark Constants
 
 NSString *kRDUserBaseIcon = @"baseIcon";
+NSString *kRDUserCollectionKey = @"collectionKey";
+NSString *kRDUserCollectionURL = @"collectionURL";
 NSString *kRDUserDisplayName = @"displayName";
 NSString *kRDUserFirstName = @"firstName";
+NSString *kRDUserFollowersURL = @"followersURL";
+NSString *kRDUserFollowingURL = @"followingURL";
 NSString *kRDUserGender = @"gender";
+NSString *kRDUserHeavyRotationKey = @"heavyRotationKey";
 NSString *kRDUserIconURL = @"iconURL";
 NSString *kRDUserLastName = @"lastName";
 NSString *kRDUserLastSongPlayed = @"lastSongPlayed";
 NSString *kRDUserLastSongPlayTime = @"lastSongPlayTime";
 NSString *kRDUserLibraryVersion = @"libraryVersion";
+NSString *kRDUserNetworkHeavyRotationKey = @"networkHeavyRotationKey";
+NSString *kRDUserPlaylistsURL = @"playlistsURL";
 NSString *kRDUserProfileURL = @"profileURL";
 NSString *kRDUserSubscriber = @"subscriber";
 NSString *kRDUserTrackCount = @"trackCount";
@@ -70,14 +77,21 @@ NSString *kRDUserUserName = @"userName";
 #pragma mark Properties
 
 @synthesize _baseIcon;
+@synthesize _collectionKey;
+@synthesize _collectionURL;
 @synthesize _displayName;
 @synthesize _firstName;
+@synthesize _followersURL;
+@synthesize _followingURL;
 @synthesize _gender;
+@synthesize _heavyRotationKey;
 @synthesize _iconURL;
 @synthesize _lastName;
 @synthesize _lastSongPlayed;
 @synthesize _lastSongPlayTime;
 @synthesize _libraryVersion;
+@synthesize _networkHeavyRotationKey;
+@synthesize _playlistsURL;
 @synthesize _profileURL;
 @synthesize _subscriber;
 @synthesize _trackCount;
@@ -105,6 +119,22 @@ NSString *kRDUserUserName = @"userName";
         _baseIcon = [(NSString *)aBaseIcon copy];
     }
 
+    id aCollectionKey = [aDictionary objectForKey:@"collectionKey"];
+    if ([aCollectionKey isKindOfClass:[NSString class]])
+    {
+        _collectionKey = [(NSString *)aCollectionKey copy];
+    }
+
+    id aCollectionURL = [aDictionary objectForKey:@"collectionUrl"];
+    if ([aCollectionURL isKindOfClass:[NSString class]])
+    {
+        _collectionURL = [[NSURL alloc] initWithString:aCollectionURL];
+    }
+    if ([aCollectionURL isKindOfClass:[NSURL class]])
+    {
+        _collectionURL = [(NSURL *)aCollectionURL retain];
+    }
+
     id aDisplayName = [aDictionary objectForKey:@"displayName"];
     if ([aDisplayName isKindOfClass:[NSString class]])
     {
@@ -117,10 +147,36 @@ NSString *kRDUserUserName = @"userName";
         _firstName = [(NSString *)aFirstName copy];
     }
 
+    id aFollowersURL = [aDictionary objectForKey:@"followersUrl"];
+    if ([aFollowersURL isKindOfClass:[NSString class]])
+    {
+        _followersURL = [[NSURL alloc] initWithString:aFollowersURL];
+    }
+    if ([aFollowersURL isKindOfClass:[NSURL class]])
+    {
+        _followersURL = [(NSURL *)aFollowersURL retain];
+    }
+
+    id aFollowingURL = [aDictionary objectForKey:@"followingUrl"];
+    if ([aFollowingURL isKindOfClass:[NSString class]])
+    {
+        _followingURL = [[NSURL alloc] initWithString:aFollowingURL];
+    }
+    if ([aFollowingURL isKindOfClass:[NSURL class]])
+    {
+        _followingURL = [(NSURL *)aFollowingURL retain];
+    }
+
     id aGender = [aDictionary objectForKey:@"gender"];
     if ([aGender isKindOfClass:[NSString class]])
     {
         _gender = [(NSString *)aGender copy];
+    }
+
+    id aHeavyRotationKey = [aDictionary objectForKey:@"heavyRotationKey"];
+    if ([aHeavyRotationKey isKindOfClass:[NSString class]])
+    {
+        _heavyRotationKey = [(NSString *)aHeavyRotationKey copy];
     }
 
     id aIconURL = [aDictionary objectForKey:@"icon"];
@@ -165,6 +221,22 @@ NSString *kRDUserUserName = @"userName";
     else if ([aLibraryVersion isKindOfClass:[NSString class]])
     {
         _libraryVersion = [[numberFormatter numberFromString:(NSString *)aLibraryVersion] retain];
+    }
+
+    id aNetworkHeavyRotationKey = [aDictionary objectForKey:@"networkHeavyRotationKey"];
+    if ([aNetworkHeavyRotationKey isKindOfClass:[NSString class]])
+    {
+        _networkHeavyRotationKey = [(NSString *)aNetworkHeavyRotationKey copy];
+    }
+
+    id aPlaylistsURL = [aDictionary objectForKey:@"playlistsUrl"];
+    if ([aPlaylistsURL isKindOfClass:[NSString class]])
+    {
+        _playlistsURL = [[NSURL alloc] initWithString:aPlaylistsURL];
+    }
+    if ([aPlaylistsURL isKindOfClass:[NSURL class]])
+    {
+        _playlistsURL = [(NSURL *)aPlaylistsURL retain];
     }
 
     id aProfileURL = [aDictionary objectForKey:@"url"];
@@ -224,12 +296,22 @@ NSString *kRDUserUserName = @"userName";
 {
     [_baseIcon release];
     _baseIcon = nil;
+    [_collectionKey release];
+    _collectionKey = nil;
+    [_collectionURL release];
+    _collectionURL = nil;
     [_displayName release];
     _displayName = nil;
     [_firstName release];
     _firstName = nil;
+    [_followersURL release];
+    _followersURL = nil;
+    [_followingURL release];
+    _followingURL = nil;
     [_gender release];
     _gender = nil;
+    [_heavyRotationKey release];
+    _heavyRotationKey = nil;
     [_iconURL release];
     _iconURL = nil;
     [_lastName release];
@@ -240,6 +322,10 @@ NSString *kRDUserUserName = @"userName";
     _lastSongPlayTime = nil;
     [_libraryVersion release];
     _libraryVersion = nil;
+    [_networkHeavyRotationKey release];
+    _networkHeavyRotationKey = nil;
+    [_playlistsURL release];
+    _playlistsURL = nil;
     [_profileURL release];
     _profileURL = nil;
     _subscriber = NO;
@@ -261,14 +347,21 @@ NSString *kRDUserUserName = @"userName";
     [super encodeWithCoder:encoder];
 
     [encoder encodeObject:_baseIcon forKey:kRDUserBaseIcon];
+    [encoder encodeObject:_collectionKey forKey:kRDUserCollectionKey];
+    [encoder encodeObject:_collectionURL forKey:kRDUserCollectionURL];
     [encoder encodeObject:_displayName forKey:kRDUserDisplayName];
     [encoder encodeObject:_firstName forKey:kRDUserFirstName];
+    [encoder encodeObject:_followersURL forKey:kRDUserFollowersURL];
+    [encoder encodeObject:_followingURL forKey:kRDUserFollowingURL];
     [encoder encodeObject:_gender forKey:kRDUserGender];
+    [encoder encodeObject:_heavyRotationKey forKey:kRDUserHeavyRotationKey];
     [encoder encodeObject:_iconURL forKey:kRDUserIconURL];
     [encoder encodeObject:_lastName forKey:kRDUserLastName];
     [encoder encodeObject:_lastSongPlayed forKey:kRDUserLastSongPlayed];
     [encoder encodeObject:_lastSongPlayTime forKey:kRDUserLastSongPlayTime];
     [encoder encodeObject:_libraryVersion forKey:kRDUserLibraryVersion];
+    [encoder encodeObject:_networkHeavyRotationKey forKey:kRDUserNetworkHeavyRotationKey];
+    [encoder encodeObject:_playlistsURL forKey:kRDUserPlaylistsURL];
     [encoder encodeObject:_profileURL forKey:kRDUserProfileURL];
     [encoder encodeBool:_subscriber forKey:kRDUserSubscriber];
     [encoder encodeObject:_trackCount forKey:kRDUserTrackCount];
@@ -282,14 +375,21 @@ NSString *kRDUserUserName = @"userName";
     if (!(self = [self initWithCoder:decoder])) return nil;
 
     _baseIcon = [decoder decodeObjectForKey:kRDUserBaseIcon];
+    _collectionKey = [decoder decodeObjectForKey:kRDUserCollectionKey];
+    _collectionURL = [decoder decodeObjectForKey:kRDUserCollectionURL];
     _displayName = [decoder decodeObjectForKey:kRDUserDisplayName];
     _firstName = [decoder decodeObjectForKey:kRDUserFirstName];
+    _followersURL = [decoder decodeObjectForKey:kRDUserFollowersURL];
+    _followingURL = [decoder decodeObjectForKey:kRDUserFollowingURL];
     _gender = [decoder decodeObjectForKey:kRDUserGender];
+    _heavyRotationKey = [decoder decodeObjectForKey:kRDUserHeavyRotationKey];
     _iconURL = [decoder decodeObjectForKey:kRDUserIconURL];
     _lastName = [decoder decodeObjectForKey:kRDUserLastName];
     _lastSongPlayed = [decoder decodeObjectForKey:kRDUserLastSongPlayed];
     _lastSongPlayTime = [decoder decodeObjectForKey:kRDUserLastSongPlayTime];
     _libraryVersion = [decoder decodeObjectForKey:kRDUserLibraryVersion];
+    _networkHeavyRotationKey = [decoder decodeObjectForKey:kRDUserNetworkHeavyRotationKey];
+    _playlistsURL = [decoder decodeObjectForKey:kRDUserPlaylistsURL];
     _profileURL = [decoder decodeObjectForKey:kRDUserProfileURL];
     _subscriber = [decoder decodeBoolForKey:kRDUserSubscriber];
     _trackCount = [decoder decodeObjectForKey:kRDUserTrackCount];
@@ -309,12 +409,22 @@ NSString *kRDUserUserName = @"userName";
 
     object->_baseIcon = nil;
     [object setBaseIcon:[self baseIcon]];
+    object->_collectionKey = nil;
+    [object setCollectionKey:[self collectionKey]];
+    object->_collectionURL = nil;
+    [object setCollectionURL:[self collectionURL]];
     object->_displayName = nil;
     [object setDisplayName:[self displayName]];
     object->_firstName = nil;
     [object setFirstName:[self firstName]];
+    object->_followersURL = nil;
+    [object setFollowersURL:[self followersURL]];
+    object->_followingURL = nil;
+    [object setFollowingURL:[self followingURL]];
     object->_gender = nil;
     [object setGender:[self gender]];
+    object->_heavyRotationKey = nil;
+    [object setHeavyRotationKey:[self heavyRotationKey]];
     object->_iconURL = nil;
     [object setIconURL:[self iconURL]];
     object->_lastName = nil;
@@ -325,6 +435,10 @@ NSString *kRDUserUserName = @"userName";
     [object setLastSongPlayTime:[self lastSongPlayTime]];
     object->_libraryVersion = nil;
     [object setLibraryVersion:[self libraryVersion]];
+    object->_networkHeavyRotationKey = nil;
+    [object setNetworkHeavyRotationKey:[self networkHeavyRotationKey]];
+    object->_playlistsURL = nil;
+    [object setPlaylistsURL:[self playlistsURL]];
     object->_profileURL = nil;
     [object setProfileURL:[self profileURL]];
     object->_subscriber = NO;

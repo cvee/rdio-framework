@@ -44,14 +44,21 @@
 @interface RDUser : RDObject
 {
     NSString *_baseIcon;
+    NSString *_collectionKey;
+    NSURL *_collectionURL;
     NSString *_displayName;
     NSString *_firstName;
+    NSURL *_followersUrl;
+    NSURL *_followingURL;
     NSString *_gender;
+    NSString *_heavyRotationKey;
     NSURL *_iconURL;
     NSString *_lastName;
     RDTrack *_lastSongPlayed;
     NSDate *_lastSongPlayTime;
     NSNumber *_libraryVersion;
+    NSString *_networkHeavyRotationKey;
+    NSURL *_playlistsURL;
     NSURL *_profileURL;
     BOOL _subscriber;
     NSNumber *_trackCount;
@@ -62,14 +69,21 @@
 
 // Properties
 @property (nonatomic, copy, getter=baseIcon, setter=setBaseIcon:) NSString *_baseIcon;
+@property (nonatomic, copy, getter=collectionKey, setter=setCollectionKey:) NSString *_collectionKey;
+@property (nonatomic, retain, getter=collectionURL, setter=setCollectionURL:) NSURL *_collectionURL;
 @property (nonatomic, copy, getter=displayName, setter=setDisplayName:) NSString *_displayName;
 @property (nonatomic, copy, getter=firstName, setter=setFirstName:) NSString *_firstName;
+@property (nonatomic, retain, getter=followersURL, setter=setFollowersURL:) NSURL *_followersURL;
+@property (nonatomic, retain, getter=followingURL, setter=setFollowingURL:) NSURL *_followingURL;
 @property (nonatomic, copy, getter=gender, setter=setGender:) NSString *_gender;
+@property (nonatomic, copy, getter=heavyRotationKey, setter=setHeavyRotationKey:) NSString *_heavyRotationKey;
 @property (nonatomic, retain, getter=iconURL, setter=setIconURL:) NSURL *_iconURL;
 @property (nonatomic, copy, getter=lastName, setter=setLastName:) NSString *_lastName;
 @property (nonatomic, retain, getter=lastSongPlayed, setter=setLastSongPlayed:) RDTrack *_lastSongPlayed;
 @property (nonatomic, retain, getter=lastSongPlayTime, setter=setLastSongPlayTime:) NSDate *_lastSongPlayTime;
 @property (nonatomic, retain, getter=libraryVersion, setter=setLibraryVersion:) NSNumber *_libraryVersion;
+@property (nonatomic, copy, getter=networkHeavyRotationKey, setter=setNetworkHeavyRotationKey:) NSString *_networkHeavyRotationKey;
+@property (nonatomic, retain, getter=playlistsURL, setter=setPlaylistsURL:) NSURL *_playlistsURL;
 @property (nonatomic, retain, getter=profileURL, setter=setProfileURL:) NSURL *_profileURL;
 @property (nonatomic, assign, getter=isSubscriber, setter=setSubscriber:) BOOL _subscriber;
 @property (nonatomic, retain, getter=trackCount, setter=setTrackCount:) NSNumber *_trackCount;
