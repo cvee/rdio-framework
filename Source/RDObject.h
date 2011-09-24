@@ -44,13 +44,13 @@
  */
 @interface RDObject : NSObject <NSCoding, NSCopying>
 {
-    NSString *key;
-    NSString *type;
+    NSString *_key;
+    NSString *_type;
 }
 
 // Properties
-@property (nonatomic, copy) NSString *key;
-@property (nonatomic, copy) NSString *type;
+@property (nonatomic, copy, getter=key, setter=setKey:) NSString *_key;
+@property (nonatomic, copy, getter=type, setter=setType:) NSString *_type;
 
 // Initialization
 - (id)initWithDictionary:(NSDictionary *)aDictionary;

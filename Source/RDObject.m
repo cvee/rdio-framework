@@ -48,8 +48,8 @@ NSString *kRDObjectType = @"type";
 #pragma mark -
 #pragma mark Properties
 
-@synthesize key;
-@synthesize type;
+@synthesize _key;
+@synthesize _type;
 
 #pragma mark -
 #pragma mark Initialization
@@ -61,13 +61,13 @@ NSString *kRDObjectType = @"type";
     id aKey = [aDictionary objectForKey:@"key"];
     if ([aKey isKindOfClass:[NSString class]])
     {
-        key = [(NSString *)aKey copy];
+        _key = [(NSString *)aKey copy];
     }
 
     id aType = [aDictionary objectForKey:@"type"];
     if ([aType isKindOfClass:[NSString class]])
     {
-        type = [(NSString *)aType copy];
+        _type = [(NSString *)aType copy];
     }
 
     return self;
@@ -78,10 +78,10 @@ NSString *kRDObjectType = @"type";
 
 - (void)dealloc
 {
-    [key release];
-    key = nil;
-    [type release];
-    type = nil;
+    [_key release];
+    _key = nil;
+    [_type release];
+    _type = nil;
 
     [super dealloc];
 }
@@ -91,16 +91,16 @@ NSString *kRDObjectType = @"type";
 
 - (void)encodeWithCoder:(NSCoder *)encoder
 {
-    [encoder encodeObject:key forKey:kRDObjectKey];
-    [encoder encodeObject:type forKey:kRDObjectType];
+    [encoder encodeObject:_key forKey:kRDObjectKey];
+    [encoder encodeObject:_type forKey:kRDObjectType];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder
 {
     if (!(self = [self init])) { return nil; }
 
-    key = [decoder decodeObjectForKey:kRDObjectKey];
-    type = [decoder decodeObjectForKey:kRDObjectType];
+    _key = [decoder decodeObjectForKey:kRDObjectKey];
+    _type = [decoder decodeObjectForKey:kRDObjectType];
 
     return self;
 }
@@ -112,9 +112,9 @@ NSString *kRDObjectType = @"type";
 {
     RDObject *object = [[[self class] allocWithZone:zone] init];
 
-    object->key = nil;
+    object->_key = nil;
     [object setKey:[self key]];
-    object->type = nil;
+    object->_type = nil;
     [object setType:[self type]];
 
     return object;
