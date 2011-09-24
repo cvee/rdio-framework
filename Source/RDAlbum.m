@@ -51,8 +51,6 @@ NSString *kRDAlbumArtistURL = @"artistURL";
 NSString *kRDAlbumBaseIcon = @"baseIcon";
 NSString *kRDAlbumClean = @"clean";
 NSString *kRDAlbumCompilation = @"compilation";
-NSString *kRDAlbumDownloadable = @"downloadable";
-NSString *kRDAlbumDownloadableAlbumOnly = @"downloadableAlbumOnly";
 NSString *kRDAlbumDuration = @"duration";
 NSString *kRDAlbumEmbedURL = @"embedURL";
 NSString *kRDAlbumExplicit = @"explicit";
@@ -83,8 +81,6 @@ NSString *kRDAlbumTrackKeys = @"trackKeys";
 @synthesize _baseIcon;
 @synthesize _clean;
 @synthesize _compilation;
-@synthesize _downloadable;
-@synthesize _downloadableAlbumOnly;
 @synthesize _duration;
 @synthesize _embedURL;
 @synthesize _explicit;
@@ -154,18 +150,6 @@ NSString *kRDAlbumTrackKeys = @"trackKeys";
     if ([aCompilation isKindOfClass:[NSNumber class]])
     {
         _compilation = [(NSNumber *)aCompilation boolValue];
-    }
-
-    id aDownloadable = [aDictionary objectForKey:@"canDownload"];
-    if ([aDownloadable isKindOfClass:[NSNumber class]])
-    {
-        _downloadable = [(NSNumber *)aDownloadable boolValue];
-    }
-
-    id aDownloadableAlbumOnly = [aDictionary objectForKey:@"canDownloadAlbumOnly"];
-    if ([aDownloadableAlbumOnly isKindOfClass:[NSNumber class]])
-    {
-        _downloadableAlbumOnly = [(NSNumber *)aDownloadableAlbumOnly boolValue];
     }
 
     id aDuration = [aDictionary objectForKey:@"duration"];
@@ -327,8 +311,6 @@ NSString *kRDAlbumTrackKeys = @"trackKeys";
     _baseIcon = nil;
     _clean = NO;
     _compilation = NO;
-    _downloadable = NO;
-    _downloadableAlbumOnly = NO;
     [_duration release];
     _duration = nil;
     [_embedURL release];
@@ -374,8 +356,6 @@ NSString *kRDAlbumTrackKeys = @"trackKeys";
     [encoder encodeObject:_baseIcon forKey:kRDAlbumBaseIcon];
     [encoder encodeBool:_clean forKey:kRDAlbumClean];
     [encoder encodeBool:_compilation forKey:kRDAlbumCompilation];
-    [encoder encodeBool:_downloadable forKey:kRDAlbumDownloadable];
-    [encoder encodeBool:_downloadableAlbumOnly forKey:kRDAlbumDownloadableAlbumOnly];
     [encoder encodeObject:_duration forKey:kRDAlbumDuration];
     [encoder encodeObject:_embedURL forKey:kRDAlbumEmbedURL];
     [encoder encodeBool:_explicit forKey:kRDAlbumExplicit];
@@ -404,8 +384,6 @@ NSString *kRDAlbumTrackKeys = @"trackKeys";
     _baseIcon = [decoder decodeObjectForKey:kRDAlbumBaseIcon];
     _clean = [decoder decodeBoolForKey:kRDAlbumClean];
     _compilation = [decoder decodeBoolForKey:kRDAlbumCompilation];
-    _downloadable = [decoder decodeBoolForKey:kRDAlbumDownloadable];
-    _downloadableAlbumOnly = [decoder decodeBoolForKey:kRDAlbumDownloadableAlbumOnly];
     _duration = [decoder decodeObjectForKey:kRDAlbumDuration];
     _embedURL = [decoder decodeObjectForKey:kRDAlbumEmbedURL];
     _explicit = [decoder decodeBoolForKey:kRDAlbumExplicit];
@@ -445,10 +423,6 @@ NSString *kRDAlbumTrackKeys = @"trackKeys";
     [object setClean:[self isClean]];
     object->_compilation = NO;
     [object setCompilation:[self isCompilation]];
-    object->_downloadable = NO;
-    [object setDownloadable:[self isDownloadable]];
-    object->_downloadableAlbumOnly = NO;
-    [object setDownloadableAlbumOnly:[self isDownloadableAlbumOnly]];
     object->_duration = nil;
     [object setDuration:[self duration]];
     object->_embedURL = nil;

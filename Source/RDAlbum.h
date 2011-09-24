@@ -48,8 +48,6 @@
     NSString *_baseIcon;
     BOOL _clean;
     BOOL _compilation;
-    BOOL _downloadable;
-    BOOL _downloadableAlbumOnly;
     NSNumber *_duration;
     NSURL *_embedURL;
     BOOL _explicit;
@@ -75,8 +73,6 @@
 @property (nonatomic, copy, getter=baseIcon, setter=setBaseIcon:) NSString *_baseIcon;
 @property (nonatomic, assign, getter=isClean, setter=setClean:) BOOL _clean;
 @property (nonatomic, assign, getter=isCompilation, setter=setCompilation:) BOOL _compilation;
-@property (nonatomic, assign, getter=isDownloadable, setter=setDownloadable:) BOOL _downloadable;
-@property (nonatomic, assign, getter=isDownloadableAlbumOnly, setter=setDownloadableAlbumOnly:) BOOL _downloadableAlbumOnly;
 @property (nonatomic, retain, getter=duration, setter=setDuration:) NSNumber *_duration;
 @property (nonatomic, retain, getter=embedURL, setter=setEmbedURL:) NSURL *_embedURL;
 @property (nonatomic, assign, getter=isExplicit, setter=setExplicit:) BOOL _explicit;
