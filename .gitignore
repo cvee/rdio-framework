@@ -2,6 +2,7 @@
 build/*
 *.pbxuser
 *.mode1v3
+*.xcodeproj/xcuserdata
 
 # Ignore Mac OS X Files
 .DS_Store
