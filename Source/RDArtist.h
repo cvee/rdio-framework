@@ -46,8 +46,10 @@
     NSURL *_iconURL;
     NSString *_name;
     NSURL *_profileURL;
+    NSString *_radioKey;
     BOOL _radioStationAvailable;
     NSURL *_shortURL;
+    NSString *_topSongsKey;
     NSNumber *_trackCount;
 }
 
@@ -57,8 +59,10 @@
 @property (nonatomic, retain, getter=iconURL, setter=setIconURL:) NSURL *_iconURL;
 @property (nonatomic, copy, getter=name, setter=setName:) NSString *_name;
 @property (nonatomic, retain, getter=profileURL, setter=setProfileURL:) NSURL *_profileURL;
+@property (nonatomic, copy, getter=radioKey, setter=setRadioKey:) NSString *_radioKey;
 @property (nonatomic, assign, getter=isRadioStationAvailable, setter=setRadioStationAvailable:) BOOL _radioStationAvailable;
 @property (nonatomic, retain, getter=shortURL, setter=setShortURL:) NSURL *_shortURL;
+@property (nonatomic, copy, getter=topSongsKey, setter=setTopSongsKey:) NSString *_topSongsKey;
 @property (nonatomic, retain, getter=trackCount, setter=setTrackCount:) NSNumber *_trackCount;
 
 @end
