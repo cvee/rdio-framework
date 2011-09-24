@@ -52,14 +52,14 @@
 }
 
 // Properties
-@property (nonatomic, retain, getter=albumCount, setter=setAlbumCount) NSNumber *_albumCount;
-@property (nonatomic, copy, getter=baseIcon, setter=setBaseIcon) NSString *_baseIcon;
-@property (nonatomic, retain, getter=iconURL, setter=setIconURL) NSURL *_iconURL;
-@property (nonatomic, copy, getter=name, setter=setName) NSString *_name;
-@property (nonatomic, retain, getter=profileURL, setter=setProfileURL) NSURL *_profileURL;
-@property (nonatomic, assign, getter=isRadioStationAvailable, setter=setRadioStationAvailable) BOOL _radioStationAvailable;
-@property (nonatomic, retain, getter=shortURL, setter=setShortURL) NSURL *_shortURL;
-@property (nonatomic, retain, getter=trackCount, setter=setTrackCount) NSNumber *_trackCount;
+@property (nonatomic, retain, getter=albumCount, setter=setAlbumCount:) NSNumber *_albumCount;
+@property (nonatomic, copy, getter=baseIcon, setter=setBaseIcon:) NSString *_baseIcon;
+@property (nonatomic, retain, getter=iconURL, setter=setIconURL:) NSURL *_iconURL;
+@property (nonatomic, copy, getter=name, setter=setName:) NSString *_name;
+@property (nonatomic, retain, getter=profileURL, setter=setProfileURL:) NSURL *_profileURL;
+@property (nonatomic, assign, getter=isRadioStationAvailable, setter=setRadioStationAvailable:) BOOL _radioStationAvailable;
+@property (nonatomic, retain, getter=shortURL, setter=setShortURL:) NSURL *_shortURL;
+@property (nonatomic, retain, getter=trackCount, setter=setTrackCount:) NSNumber *_trackCount;
 
 @end
 

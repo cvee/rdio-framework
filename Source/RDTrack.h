@@ -72,34 +72,34 @@
 }
 
 // Properties
-@property (nonatomic, copy, getter=albumArtistKey, setter=setAlbumArtistKey) NSString *_albumArtistKey;
-@property (nonatomic, copy, getter=albumArtistName, setter=setAlbumArtistName) NSString *_albumArtistName;
-@property (nonatomic, copy, getter=albumKey, setter=setAlbumKey) NSString *_albumKey;
-@property (nonatomic, copy, getter=albumName, setter=setAlbumName) NSString *_albumName;
-@property (nonatomic, retain, getter=albumURL, setter=setAlbumURL) NSURL *_albumURL;
-@property (nonatomic, copy, getter=artistKey, setter=setArtistKey) NSString *_artistKey;
-@property (nonatomic, copy, getter=artistName, setter=setArtistName) NSString *_artistName;
-@property (nonatomic, retain, getter=artistURL, setter=setArtistURL) NSURL *_artistURL;
-@property (nonatomic, copy, getter=baseIcon, setter=setBaseIcon) NSString *_baseIcon;
-@property (nonatomic, assign, getter=isClean, setter=setClean) BOOL _clean;
-@property (nonatomic, assign, getter=isDownloadable, setter=setDownloadable) BOOL _downloadable;
-@property (nonatomic, assign, getter=isDownloadableAlbumOnly, setter=setDownloadableAlbumOnly) BOOL _downloadableAlbumOnly;
-@property (nonatomic, retain, getter=duration, setter=setDuration) NSNumber *_duration;
-@property (nonatomic, retain, getter=embedURL, setter=setEmbedURL) NSURL *_embedURL;
-@property (nonatomic, assign, getter=isExplicit, setter=setExplicit) BOOL _explicit;
-@property (nonatomic, retain, getter=iconURL, setter=setIconURL) NSURL *_iconURL;
-@property (nonatomic, retain, getter=iconLargeURL, setter=setIconLargeURL) NSURL *_iconLargeURL;
-@property (nonatomic, retain, getter=length, setter=setLength) NSNumber *_length;
-@property (nonatomic, copy, getter=name, setter=setName) NSString *_name;
-@property (nonatomic, assign, getter=isOnCompilation, setter=setOnCompilation) BOOL _onCompilation;
-@property (nonatomic, retain, getter=playCount, setter=setPlayCount) NSNumber *_playCount;
-@property (nonatomic, retain, getter=price, setter=setPrice) NSNumber *_price;
-@property (nonatomic, retain, getter=profileURL, setter=setProfileURL) NSURL *_profileURL;
-@property (nonatomic, assign, getter=isSampleable, setter=setSampleable) BOOL _sampleable;
-@property (nonatomic, retain, getter=shortURL, setter=setShortURL) NSURL *_shortURL;
-@property (nonatomic, assign, getter=isStreamable, setter=setStreamable) BOOL _streamable;
-@property (nonatomic, assign, getter=isSyncable, setter=setSyncable) BOOL _syncable;
-@property (nonatomic, retain, getter=trackNumber, setter=setTrackNumber) NSNumber *_trackNumber;
+@property (nonatomic, copy, getter=albumArtistKey, setter=setAlbumArtistKey:) NSString *_albumArtistKey;
+@property (nonatomic, copy, getter=albumArtistName, setter=setAlbumArtistName:) NSString *_albumArtistName;
+@property (nonatomic, copy, getter=albumKey, setter=setAlbumKey:) NSString *_albumKey;
+@property (nonatomic, copy, getter=albumName, setter=setAlbumName:) NSString *_albumName;
+@property (nonatomic, retain, getter=albumURL, setter=setAlbumURL:) NSURL *_albumURL;
+@property (nonatomic, copy, getter=artistKey, setter=setArtistKey:) NSString *_artistKey;
+@property (nonatomic, copy, getter=artistName, setter=setArtistName:) NSString *_artistName;
+@property (nonatomic, retain, getter=artistURL, setter=setArtistURL:) NSURL *_artistURL;
+@property (nonatomic, copy, getter=baseIcon, setter=setBaseIcon:) NSString *_baseIcon;
+@property (nonatomic, assign, getter=isClean, setter=setClean:) BOOL _clean;
+@property (nonatomic, assign, getter=isDownloadable, setter=setDownloadable:) BOOL _downloadable;
+@property (nonatomic, assign, getter=isDownloadableAlbumOnly, setter=setDownloadableAlbumOnly:) BOOL _downloadableAlbumOnly;
+@property (nonatomic, retain, getter=duration, setter=setDuration:) NSNumber *_duration;
+@property (nonatomic, retain, getter=embedURL, setter=setEmbedURL:) NSURL *_embedURL;
+@property (nonatomic, assign, getter=isExplicit, setter=setExplicit:) BOOL _explicit;
+@property (nonatomic, retain, getter=iconURL, setter=setIconURL:) NSURL *_iconURL;
+@property (nonatomic, retain, getter=iconLargeURL, setter=setIconLargeURL:) NSURL *_iconLargeURL;
+@property (nonatomic, retain, getter=length, setter=setLength:) NSNumber *_length;
+@property (nonatomic, copy, getter=name, setter=setName:) NSString *_name;
+@property (nonatomic, assign, getter=isOnCompilation, setter=setOnCompilation:) BOOL _onCompilation;
+@property (nonatomic, retain, getter=playCount, setter=setPlayCount:) NSNumber *_playCount;
+@property (nonatomic, retain, getter=price, setter=setPrice:) NSNumber *_price;
+@property (nonatomic, retain, getter=profileURL, setter=setProfileURL:) NSURL *_profileURL;
+@property (nonatomic, assign, getter=isSampleable, setter=setSampleable:) BOOL _sampleable;
+@property (nonatomic, retain, getter=shortURL, setter=setShortURL:) NSURL *_shortURL;
+@property (nonatomic, assign, getter=isStreamable, setter=setStreamable:) BOOL _streamable;
+@property (nonatomic, assign, getter=isSyncable, setter=setSyncable:) BOOL _syncable;
+@property (nonatomic, retain, getter=trackNumber, setter=setTrackNumber:) NSNumber *_trackNumber;
 
 
 @end

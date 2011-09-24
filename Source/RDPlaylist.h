@@ -59,20 +59,20 @@
 }
 
 // Properties
-@property (nonatomic, copy, getter=baseIcon, setter=setBaseIcon) NSString *_baseIcon;
-@property (nonatomic, retain, getter=embedURL, setter=setEmbedURL) NSURL *_embedURL;
-@property (nonatomic, retain, getter=iconURL, setter=setIconURL) NSURL *_iconURL;
-@property (nonatomic, retain, getter=iconLargeURL, setter=setIconLargeURL) NSURL *_iconLargeURL;
-@property (nonatomic, retain, getter=lastUpdated, setter=setLastUpdated) NSDate *_lastUpdated;
-@property (nonatomic, copy, getter=name, setter=setName) NSString *_name;
-@property (nonatomic, retain, getter=profileURL, setter=setProfileURL) NSURL *_profileURL;
-@property (nonatomic, retain, getter=shortURL, setter=setShortURL) NSURL *_shortURL;
-@property (nonatomic, retain, getter=trackCount, setter=setTrackCount) NSNumber *_trackCount;
-@property (nonatomic, copy, getter=userKey, setter=setUserKey) NSString *_userKey;
-@property (nonatomic, copy, getter=userDisplayName, setter=setUserDisplayName) NSString *_userDisplayName;
-@property (nonatomic, retain, getter=userIconURL, setter=setUserIconURL) NSURL *_userIconURL;
-@property (nonatomic, retain, getter=userProfileURL, setter=setUserProfileURL) NSURL *_userProfileURL;
-@property (nonatomic, copy, getter=trackKeys, setter=setTrackKeys) NSArray *_trackKeys;
+@property (nonatomic, copy, getter=baseIcon, setter=setBaseIcon:) NSString *_baseIcon;
+@property (nonatomic, retain, getter=embedURL, setter=setEmbedURL:) NSURL *_embedURL;
+@property (nonatomic, retain, getter=iconURL, setter=setIconURL:) NSURL *_iconURL;
+@property (nonatomic, retain, getter=iconLargeURL, setter=setIconLargeURL:) NSURL *_iconLargeURL;
+@property (nonatomic, retain, getter=lastUpdated, setter=setLastUpdated:) NSDate *_lastUpdated;
+@property (nonatomic, copy, getter=name, setter=setName:) NSString *_name;
+@property (nonatomic, retain, getter=profileURL, setter=setProfileURL:) NSURL *_profileURL;
+@property (nonatomic, retain, getter=shortURL, setter=setShortURL:) NSURL *_shortURL;
+@property (nonatomic, retain, getter=trackCount, setter=setTrackCount:) NSNumber *_trackCount;
+@property (nonatomic, copy, getter=userKey, setter=setUserKey:) NSString *_userKey;
+@property (nonatomic, copy, getter=userDisplayName, setter=setUserDisplayName:) NSString *_userDisplayName;
+@property (nonatomic, retain, getter=userIconURL, setter=setUserIconURL:) NSURL *_userIconURL;
+@property (nonatomic, retain, getter=userProfileURL, setter=setUserProfileURL:) NSURL *_userProfileURL;
+@property (nonatomic, copy, getter=trackKeys, setter=setTrackKeys:) NSArray *_trackKeys;
 
 
 @end
