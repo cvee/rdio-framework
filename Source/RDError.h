@@ -44,11 +44,11 @@
  */
 @interface RDError : NSObject <NSCoding, NSCopying>
 {
-    NSString *message;
+    NSString *_message;
 }
 
 // Properties
-@property (nonatomic, copy) NSString *message;
+@property (nonatomic, copy, getter=message, setter=setMessage:) NSString *_message;
 
 // Initialization
 - (id)initWithDictionary:(NSDictionary *)aDictionary;

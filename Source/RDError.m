@@ -47,7 +47,7 @@ NSString *kRDErrorMessage = @"message";
 #pragma mark -
 #pragma mark Properties
 
-@synthesize message;
+@synthesize _message;
 
 #pragma mark -
 #pragma mark Initialization
@@ -59,7 +59,7 @@ NSString *kRDErrorMessage = @"message";
     id aMessage = [aDictionary objectForKey:@"message"];
     if ([aMessage isKindOfClass:[NSString class]])
     {
-        message = [(NSString *)aMessage retain];
+        _message = [(NSString *)aMessage retain];
     }
 
     return self;
@@ -70,8 +70,8 @@ NSString *kRDErrorMessage = @"message";
 
 - (void)dealloc
 {
-    [message release];
-    message = nil;
+    [_message release];
+    _message = nil;
 
     [super dealloc];
 }
@@ -81,14 +81,14 @@ NSString *kRDErrorMessage = @"message";
 
 - (void)encodeWithCoder:(NSCoder *)encoder
 {
-    [encoder encodeObject:message forKey:kRDErrorMessage];
+    [encoder encodeObject:_message forKey:kRDErrorMessage];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder
 {
     if (!(self = [self init])) { return nil; }
 
-    message = [decoder decodeObjectForKey:kRDErrorMessage];
+    _message = [decoder decodeObjectForKey:kRDErrorMessage];
 
     return self;
 }
@@ -100,7 +100,7 @@ NSString *kRDErrorMessage = @"message";
 {
     RDError *object = [[[self class] allocWithZone:zone] init];
 
-    object->message = nil;
+    object->_message = nil;
     [object setMessage:[self message]];
 
     return object;
