@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
+		B276945F142F8A2500ABC15A /* RDCollectionAlbum.h in Headers */ = {isa = PBXBuildFile; fileRef = B276945D142F8A2500ABC15A /* RDCollectionAlbum.h */; };
+		B2769460142F8A2500ABC15A /* RDCollectionAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = B276945E142F8A2500ABC15A /* RDCollectionAlbum.m */; };
+		B2769464142F8C5E00ABC15A /* RDCollectionArtist.h in Headers */ = {isa = PBXBuildFile; fileRef = B2769462142F8C5D00ABC15A /* RDCollectionArtist.h */; };
+		B2769465142F8C5E00ABC15A /* RDCollectionArtist.m in Sources */ = {isa = PBXBuildFile; fileRef = B2769463142F8C5D00ABC15A /* RDCollectionArtist.m */; };
 		EF1C63B9135DCF2800A29562 /* RDTrack.h in Headers */ = {isa = PBXBuildFile; fileRef = EF1C63B7135DCF2800A29562 /* RDTrack.h */; };
 		EF1C63BA135DCF2800A29562 /* RDTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = EF1C63B8135DCF2800A29562 /* RDTrack.m */; };
 		EF2162951355456E008401A9 /* RDObject.h in Headers */ = {isa = PBXBuildFile; fileRef = EF2162931355456E008401A9 /* RDObject.h */; };
@@ -43,6 +47,10 @@
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		32DBCF5E0370ADEE00C91783 /* Rdio_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rdio_Prefix.pch; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* Rdio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Rdio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B276945D142F8A2500ABC15A /* RDCollectionAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RDCollectionAlbum.h; path = Source/RDCollectionAlbum.h; sourceTree = "<group>"; };
+		B276945E142F8A2500ABC15A /* RDCollectionAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RDCollectionAlbum.m; path = Source/RDCollectionAlbum.m; sourceTree = "<group>"; };
+		B2769462142F8C5D00ABC15A /* RDCollectionArtist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RDCollectionArtist.h; path = Source/RDCollectionArtist.h; sourceTree = "<group>"; };
+		B2769463142F8C5D00ABC15A /* RDCollectionArtist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RDCollectionArtist.m; path = Source/RDCollectionArtist.m; sourceTree = "<group>"; };
 		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		EF1C63B7135DCF2800A29562 /* RDTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RDTrack.h; path = Source/RDTrack.h; sourceTree = "<group>"; };
 		EF1C63B8135DCF2800A29562 /* RDTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RDTrack.m; path = Source/RDTrack.m; sourceTree = "<group>"; };
@@ -193,6 +201,10 @@
 				EFFBA93C135FCE66009569E0 /* RDAlbum.m */,
 				EFED3E10135D220A00F93EF8 /* RDArtist.h */,
 				EFED3E11135D220A00F93EF8 /* RDArtist.m */,
+				B276945D142F8A2500ABC15A /* RDCollectionAlbum.h */,
+				B276945E142F8A2500ABC15A /* RDCollectionAlbum.m */,
+				B2769462142F8C5D00ABC15A /* RDCollectionArtist.h */,
+				B2769463142F8C5D00ABC15A /* RDCollectionArtist.m */,
 				EFED3E14135D221700F93EF8 /* RDError.h */,
 				EFED3E15135D221700F93EF8 /* RDError.m */,
 				EF2162931355456E008401A9 /* RDObject.h */,
@@ -226,6 +238,8 @@
 				EF1C63B9135DCF2800A29562 /* RDTrack.h in Headers */,
 				EFFBA93D135FCE66009569E0 /* RDAlbum.h in Headers */,
 				EFFBA95D135FD657009569E0 /* RDPlaylist.h in Headers */,
+				B276945F142F8A2500ABC15A /* RDCollectionAlbum.h in Headers */,
+				B2769464142F8C5E00ABC15A /* RDCollectionArtist.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +323,8 @@
 				EF1C63BA135DCF2800A29562 /* RDTrack.m in Sources */,
 				EFFBA93E135FCE66009569E0 /* RDAlbum.m in Sources */,
 				EFFBA95E135FD657009569E0 /* RDPlaylist.m in Sources */,
+				B2769460142F8A2500ABC15A /* RDCollectionAlbum.m in Sources */,
+				B2769465142F8C5E00ABC15A /* RDCollectionArtist.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
