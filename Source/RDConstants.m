@@ -33,7 +33,9 @@
 #import <Foundation/NSString.h>
 
 
-NSString * const RDAPIBaseURLString = @"http://api.rdio.com";
 NSString * const RDMediaBaseURLString = @"http://media.rd.io";
 NSString * const RDWebsiteBaseURLString = @"http://www.rdio.com";
+NSString * const RDWebServiceAPIBaseURLString = @"http://api.rdio.com";
+NSString * const RDWebServiceAPIMethodGetAlbumsForArtist = @"getAlbumsForArtist";
+NSString * const RDWebServiceAPIVersion = @"1";
 NSString * const RDWebServiceLocaleIdentifier = @"en_US";

@@ -38,9 +38,11 @@
 @class NSString;
 
 
-FOUNDATION_EXPORT NSString * const RDAPIBaseURLString;
 FOUNDATION_EXPORT NSString * const RDMediaBaseURLString;
 FOUNDATION_EXPORT NSString * const RDWebsiteBaseURLString;
+FOUNDATION_EXPORT NSString * const RDWebServiceAPIBaseURLString;
+FOUNDATION_EXPORT NSString * const RDWebServiceAPIMethodGetAlbumsForArtist;
+FOUNDATION_EXPORT NSString * const RDWebServiceAPIVersion;
 FOUNDATION_EXPORT NSString * const RDWebServiceLocaleIdentifier;
 
 #endif
