@@ -61,12 +61,11 @@ NSString *kLPServiceClientTarget = @"target";
 - (void)removeRequestForConnection:(NSURLConnection *)connection;
 - (void)setRequest:(LPServiceRequest *)aRequest forConnection:(NSURLConnection *)connection;
 
-// NSURLConnection Delegate
+// NSURLConnectionDelegate
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error;
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data;
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response;
 - (NSURLRequest *)connection:(NSURLConnection *)connection willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)redirectResponse;
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection;
 
 @end
 
@@ -232,18 +231,6 @@ NSString *kLPServiceClientTarget = @"target";
     return nil;
 }
 
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection;
-{
-#ifdef CONFIGURATION_DEBUG
-    NSLog(@"[%@ connectionDidFinishLoading:]", [self className]);
-#endif
-
-    [self closeConnection:connection];
-
-    // Remove the connection information
-    [self removeRequestForConnection:connection];
-}
-
 #pragma mark -
 
 @end
@@ -318,6 +305,21 @@ NSString *kLPServiceClientTarget = @"target";
     }
 
     return nil;
+}
+
+#pragma mark -
+#pragma mark NSURLConnectionDelegate
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection;
+{
+#ifdef CONFIGURATION_DEBUG
+    NSLog(@"[%@ connectionDidFinishLoading:]", [self className]);
+#endif
+    
+    [self closeConnection:connection];
+    
+    // Remove the connection information
+    [self removeRequestForConnection:connection];
 }
 
 @end

@@ -91,6 +91,9 @@
  */
 - (LPServiceRequest *)requestForConnection:(NSURLConnection *)connection;
 
+// NSURLConnectionDelegate
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection;
+
 @end
 
 /**
