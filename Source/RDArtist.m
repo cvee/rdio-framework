@@ -37,6 +37,7 @@
 #import <Foundation/NSLocale.h>
 #import <Foundation/NSNumberFormatter.h>
 #import <Foundation/NSString.h>
+#import <Foundation/NSURL.h>
 
 
 #pragma mark -
@@ -148,10 +149,10 @@ NSString *kRDArtistTrackCount = @"trackCount";
         _shortURL = [(NSURL *)aShortURL retain];
     }
 
-    id aToSongsKey = [aDictionary objectForKey:@"topSongsKey"];
-    if ([aToSongsKey isKindOfClass:[NSString class]])
+    id aTopSongsKey = [aDictionary objectForKey:@"topSongsKey"];
+    if ([aTopSongsKey isKindOfClass:[NSString class]])
     {
-        _topSongsKey = [(NSString *)aToSongsKey copy];
+        _topSongsKey = [(NSString *)aTopSongsKey copy];
     }
 
     id aTrackCount = [aDictionary objectForKey:@"length"];
